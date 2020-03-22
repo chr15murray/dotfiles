@@ -204,6 +204,8 @@ alias whatsmyip='curl https://ipv4.icanhazip.com'
 alias gs='git status'
 alias gpr='gh pr create -w'
 alias cleardnscache='dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
+alias vim="nvim"
+
 # Path
 #export PATH="$PATH:~/bin"
 export PATH="$PATH:/Users/chrismurray/google-cloud-sdk/bin"
