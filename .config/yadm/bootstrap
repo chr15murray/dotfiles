@@ -22,5 +22,10 @@ if [ "$system_type" = "Darwin" ]; then
     defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
   fi
 
+  if [ -d "$HOME/bitbar" ]; then
+    echo "Setting Bitbar Plugin Directory"
+    defaults write com.matryer.BitBar pluginsDirectory "$HOME/bitbar"
+  fi
+
 fi
 
