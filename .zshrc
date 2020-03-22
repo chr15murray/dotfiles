@@ -56,7 +56,7 @@ zsh_iapproxy(){
 
 zsh_proxyon(){
     local proxyon=$(printenv CLOUDSDK_ACTIVE_CONFIG_NAME)
-    local vpnstatus=$(scutil --nc status Fetch | HEAD -n 1)
+    local vpnstatus=$(scutil --nc status Fetch 2> /dev/null | HEAD -n 1)
     local color='%F{black}'
     local icon='f817'
     [[ $vpnstatus != "Connected" ]] && local color='%F{red}' && local icon='f818'
