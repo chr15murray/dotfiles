@@ -212,6 +212,7 @@ alias gs='git status'
 alias gpr='gh pr create -w'
 alias cleardnscache='dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 alias vim="nvim"
+alias cat="bat -pp"
 
 # Path
 #export PATH="$PATH:~/bin"
