@@ -275,6 +275,8 @@ export PATH=/Users/chrismurray/bin:$PATH
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 [[ -s "/etc/grc.zsh" ]] && source /usr/local/etc/grc.zsh
 
+# Settings
+export RANGER_LOAD_DEFAULT_RC=FALSE.
 
 # Homebrew Overrides
 export PATH="/usr/local/opt/helm@2/bin:$PATH"
