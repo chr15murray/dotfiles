@@ -142,9 +142,9 @@ plugins=(
   git
   kube-ps1
   zsh-wakatime
-#  zsh-completions
+  zsh-completions
   emoji
-#  zsh-autosuggestions
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -180,11 +180,13 @@ source $ZSH/oh-my-zsh.sh
 
 
 ## Chris Config ##
-autoload -U compinit && compinit
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=67"
-source <(stern --completion=zsh)
+#autoload -U compinit && compinit
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=67"
+#source <(stern --completion=zsh)
 
 # Alias
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
 alias k=kubectl
 ka () { kubectl "$@" --all-namespaces; }
 alias kp='https_proxy=127.0.0.1:8888 kubectl'
@@ -218,19 +220,8 @@ alias cat="bat -pp"
 #export PATH="$PATH:~/bin"
 export PATH="$PATH:/Users/chrismurray/google-cloud-sdk/bin"
 
-# GCloud
-# The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/chrismurray/google-cloud-sdk/path.bash.inc' ]; then . '/Users/chrismurray/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-# if [ -f '/Users/chrismurray/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/chrismurray/google-cloud-sdk/completion.bash.inc'; fi
-
 # History Control
 export HISTCONTROL=ignoreboth
-
-# Vault
-#export VAULT_ADDR=https://104.196.162.47:8200
-
 
 # Auto completion
 #complete -C /Users/chrismurray/bin/terraform terraform
@@ -241,15 +232,11 @@ export HISTCONTROL=ignoreboth
 # AWS
 export AWS_SDK_LOAD_CONFIG=1
 
-# Change the USER to match google cloud
-#export USER="chris_murray"
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/chrismurray/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/chrismurray/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/chrismurray/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/chrismurray/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
 
 source ~/keys/terraform.rc
 
@@ -271,9 +258,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 export PATH=/Users/chrismurray/bin:$PATH
 
-[[ -e "/Users/chrismurray/lib/oracle-cli/lib/python3.7/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/Users/chrismurray/lib/oracle-cli/lib/python3.7/site-packages/oci_cli/bin/oci_autocomplete.sh"
+#[[ -e "/Users/chrismurray/lib/oracle-cli/lib/python3.7/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/Users/chrismurray/lib/oracle-cli/lib/python3.7/site-packages/oci_cli/bin/oci_autocomplete.sh"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-[[ -s "/etc/grc.zsh" ]] && source /usr/local/etc/grc.zsh
+#[[ -s "/etc/grc.zsh" ]] && source /usr/local/etc/grc.zsh
 
 # Settings
 export RANGER_LOAD_DEFAULT_RC=FALSE
@@ -283,3 +270,8 @@ export PATH="/usr/local/opt/helm@2/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Load last to avoid crashes
+autoload -U compinit && compinit
+source <(stern --completion=zsh)
+if [ -f '/Users/chrismurray/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/chrismurray/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
