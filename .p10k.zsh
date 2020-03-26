@@ -187,6 +187,7 @@
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=255
   # Custom icon.
   typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='$emoji[monkey_face]' 
+  #typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='$(random_emoji fruits)'
 
   ################################[ prompt_char: prompt symbol ]################################
   # Transparent background.
