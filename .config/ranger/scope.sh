@@ -116,6 +116,10 @@ handle_extension() {
             exiftool "${FILE_PATH}" && exit 5
             ;; # Continue with next handler on failure
 
+	## MD files rendered my mdless
+	md)
+	    mdless "${FILE_PATH}" && exit 5
+	    ;;
     esac
 }
 
