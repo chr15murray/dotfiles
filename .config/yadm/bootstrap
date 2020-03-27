@@ -12,20 +12,34 @@ if [ "$system_type" = "Darwin" ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
+  # Run homebrew bundle
   if [ -f "$HOME/.Brewfile" ]; then
     echo "Updating homebrew bundle"
     brew bundle --global
   fi
 
+  # Setup iTerm2
   if [ -d "$HOME/.iterm2" ]; then
     echo "Setting iTerm preference folder"
     defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
   fi
 
+  # Setup Bitbar
   if [ -d "$HOME/bitbar" ]; then
     echo "Setting Bitbar Plugin Directory"
     defaults write com.matryer.BitBar pluginsDirectory "$HOME/bitbar"
   fi
+
+  # Install ZSH Custom Plugins if not present
+  echo "Installing any missing zsh plugins - Will not update"
+  ZSH_CUSTOM=~/.oh-my-zsh/custom
+  [ ! -d $ZSH_CUSTOM/themes/powerlevel10k ] && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+  [ ! -d $ZSH_CUSTOM/plugins/zsh-wakatime ] && git clone --depth=1 https://github.com/wbingli/zsh-wakatime.git $ZSH_CUSTOM/plugins/zsh-wakatime
+
+  [ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ] && git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+
 
 fi
 
