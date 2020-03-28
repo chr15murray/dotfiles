@@ -40,6 +40,8 @@ if [ "$system_type" = "Darwin" ]; then
   [ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ] && git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
 
+  # Mac Settings
+  ${HOME}/.config/yadm/scripts/mac-settings.sh
 
 fi
 
