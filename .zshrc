@@ -145,6 +145,7 @@ plugins=(
   zsh-completions
   emoji
   zsh-autosuggestions
+  taskwarrior
 )
 
 source $ZSH/oh-my-zsh.sh
