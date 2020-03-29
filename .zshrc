@@ -275,4 +275,5 @@ export PATH="/usr/local/opt/helm@2/bin:$PATH"
 # Load last to avoid crashes
 autoload -U compinit && compinit
 source <(stern --completion=zsh)
+source /usr/local/etc/bash_completion.d/az
 if [ -f '/Users/chrismurray/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/chrismurray/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
