@@ -239,7 +239,7 @@ if [ -f '/Users/chrismurray/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/chrismurray/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/chrismurray/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
-source ~/keys/terraform.rc
+# source ~/keys/terraform.rc
 
 # Activate antigen
 source /usr/local/share/antigen/antigen.zsh
