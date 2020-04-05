@@ -22,12 +22,20 @@ if [ "$system_type" = "Darwin" ]; then
   if [ -d "$HOME/.config/iterm2" ]; then
     echo "Setting iTerm preference folder"
     defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.config/iterm2"
+    defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
   fi
 
   # Setup Bitbar
   if [ -d "$HOME/bitbar" ]; then
     echo "Setting Bitbar Plugin Directory"
     defaults write com.matryer.BitBar pluginsDirectory "$HOME/bitbar"
+  fi
+
+  if [ ! -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]; then
+    echo "Installing Oh-My-Zsh"
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    mv $HOME/.zshrc $HOME/.zshrc_new
+    mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
   fi
 
   # Install ZSH Custom Plugins if not present
