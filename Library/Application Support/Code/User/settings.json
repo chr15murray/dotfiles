@@ -1,0 +1,42 @@
+{
+    "git.autofetch": true,
+    "cloudcode.gke": {
+        "projectIds": [
+            "organic-storm-201412",
+            "fetch-ai-prod"
+        ]
+    },
+    "editor.fontFamily": "hack nerd font mono",
+    "jenkins.pipeline.linter.connector.crumbUrl": "https://jenkins-dev.economicagents.com//crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb))",
+    "terminal.integrated.copyOnSelection": true,
+    "window.zoomLevel": 0,
+    "git.confirmSync": false,
+    "vs-kubernetes": {
+        "vs-kubernetes.helm-path": "/Users/chrismurray/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+        "vs-kubernetes.kubectl-path": "/Users/chrismurray/.vs-kubernetes/tools/kubectl/kubectl",
+        "vs-kubernetes.minikube-path": "/Users/chrismurray/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+        "vs-kubernetes.draft-path": "/Users/chrismurray/.vs-kubernetes/tools/draft/darwin-amd64/draft",
+        "vs-kubernetes.minikube-path.mac": "/Users/chrismurray/.vs-kubernetes/tools/minikube/darwin-amd64/minikube"
+    },
+    "terminal.integrated.rightClickBehavior": "copyPaste",
+    "terraform.indexing": {
+        "enabled": true,
+        "liveIndexing": false,
+        "delay": 500,
+        "exclude": [
+            ".terraform/**/*",
+            "**/.terraform/**/*"
+        ]
+    },
+    "terraform.languageServer": {
+        "enabled": false,
+        "args": []
+    },
+    "diffEditor.ignoreTrimWhitespace": false,
+    "terminal.integrated.fontSize": 14,
+    "yaml.schemas": {
+        "file:///Users/chrismurray/.vscode/extensions/me-dutour-mathieu.vscode-github-actions-2.2.7/schemas/workflow.schema.json": "/.github/workflows/*.yml",
+        "file:///Users/chrismurray/.vscode/extensions/me-dutour-mathieu.vscode-github-actions-2.2.7/schemas/action.schema.json": "/action.yml"
+    },
+    "editor.columnSelection": false
+}
