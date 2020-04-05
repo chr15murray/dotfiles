@@ -19,7 +19,7 @@ if [ "$system_type" = "Darwin" ]; then
   fi
 
   # Setup iTerm2
-  if [ -d "$HOME/.iterm2" ]; then
+  if [ -d "$HOME/iterm2" ]; then
     echo "Setting iTerm preference folder"
     defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.iterm2"
   fi
