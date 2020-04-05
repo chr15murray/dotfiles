@@ -1,7 +1,7 @@
 # dotfiles
 Yadm managed dotfiles
 
-### Git Setup
+### YADM Setup
 ```
 # install git as part of xcode
 xcode-select --install
@@ -29,3 +29,15 @@ rm -rf ~/git/dotfiles
 # install and setup yadm
 brew install yadm
 yadm clone https://github.com/chr15murray/dotfiles.git
+
+# Follow the bootstrap prompts
+# After ZSH is configured `exit`
+
+```
+
+### VSCODE
+
+THis uses a setting sync plugin and GitHub gist. 
+
+Install Settings Sync (shan.code-settings-sync) and authenticate to GitHub. You should then be able to select the gist and download.
+
