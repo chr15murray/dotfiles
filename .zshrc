@@ -277,3 +277,5 @@ autoload -U compinit && compinit
 source <(stern --completion=zsh)
 source /usr/local/etc/bash_completion.d/az
 if [ -f '/Users/chrismurray/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/chrismurray/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+source ~/.config/.iterm2_shell_integration.zsh
