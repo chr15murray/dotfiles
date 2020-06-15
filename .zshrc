@@ -216,6 +216,8 @@ alias gpr='gh pr create -w'
 alias cleardnscache='dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 alias vim="nvim"
 alias cat="bat -pp"
+alias pp="pulumi preview --diff"
+alias pup="pulumi up --diff"
 
 # Path
 #export PATH="$PATH:~/bin"
@@ -271,6 +273,9 @@ export PATH="/usr/local/opt/helm@2/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Custom Completions
+fpath=(~/.config/zsh_completions $fpath)
 
 # Load last to avoid crashes
 autoload -U compinit && compinit
