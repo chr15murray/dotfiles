@@ -216,8 +216,10 @@ alias gpr='gh pr create -w'
 alias cleardnscache='dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 alias vim="nvim"
 alias cat="bat -pp"
+alias p="pulumi"
 alias pp="pulumi preview --diff"
-alias pup="pulumi up --diff"
+alias pup="pulumi up"
+alias pupd="pulumi up --diff"
 
 # Path
 #export PATH="$PATH:~/bin"
