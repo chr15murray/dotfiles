@@ -11,7 +11,7 @@
 # Use the command 'task show' to see all defaults and overrides
 
 # Files
-data.location=~/.task
+data.location=~/.config/task
 
 # Color theme (uncomment one to use)
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/light-16.theme
@@ -29,9 +29,9 @@ data.location=~/.task
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-light-256.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/no-color.theme
 
-taskd.certificate=/Users/chrismurray/.task/private.cert
-taskd.key=/Users/chrismurray/.task/private.key
-taskd.ca=/Users/chrismurray/.task/ca.cert.pem
+taskd.certificate=/Users/chrismurray/.config/task/private.cert
+taskd.key=/Users/chrismurray/.config/task/private.key
+taskd.ca=/Users/chrismurray/.config/task/ca.cert.pem
 taskd.server=taskwarrior.inthe.am:53589
 taskd.credentials=inthe_am/chris6d1bab1bcf6548a1/403f6e5b-09d2-49a4-8684-2eabf9194c21
 taskd.trust=ignore hostname
