@@ -221,6 +221,7 @@ alias pp="pulumi preview --diff"
 alias pup="pulumi up"
 alias pupd="pulumi up --diff"
 monkify () { /usr/local/bin/terminal-notifier -title Monkify -message "$@" -appIcon ~/.config/monkey-icon.png }
+alias jsre="jira jql \"(project = OPS OR labels = RequireSRE ) AND (status != Done AND status != Rejected AND status != 'Waiting for Triage' AND status != Completed ) \""
 
 # Path
 #export PATH="$PATH:~/bin"
