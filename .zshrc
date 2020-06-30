@@ -220,6 +220,7 @@ alias p="pulumi"
 alias pp="pulumi preview --diff"
 alias pup="pulumi up"
 alias pupd="pulumi up --diff"
+monkify () { /usr/local/bin/terminal-notifier -title Monkify -message "$@" -appIcon ~/.config/monkey-icon.png }
 
 # Path
 #export PATH="$PATH:~/bin"
