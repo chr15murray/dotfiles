@@ -234,7 +234,7 @@ alias pup="pulumi up"
 alias pupd="pulumi up --diff"
 monkify () { /usr/local/bin/terminal-notifier -title Monkify -message "$@" -appIcon ~/.config/monkey-icon.png }
 alias jsre="jira jql \"(project = OPS OR labels = RequireSRE ) AND (status != Done AND status != Rejected AND status != 'Waiting for Triage' AND status != Completed ) \""
-
+azid () { az resource show --ids ${RID} -o json }
 # Path
 #export PATH="$PATH:~/bin"
 export PATH="$PATH:/Users/chrismurray/google-cloud-sdk/bin"
