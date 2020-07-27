@@ -141,7 +141,7 @@ POWERLEVEL9K_CUSTOM_WARN_BACKGROUND='steel'
 plugins=(
   git
   kube-ps1
-  zsh-wakatime
+  wakatime
   zsh-completions
   emoji
   zsh-autosuggestions
