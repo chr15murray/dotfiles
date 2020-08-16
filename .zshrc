@@ -234,6 +234,7 @@ alias pup="pulumi up"
 alias pupd="pulumi up --diff"
 monkify () { /usr/local/bin/terminal-notifier -title Monkify -message "$@" -appIcon ~/.config/monkey-icon.png }
 alias jsre="jira jql \"(project = OPS OR labels = RequireSRE ) AND (status != Done AND status != Rejected AND status != 'Waiting for Triage' AND status != Completed ) \""
+alias tl='echo -e "🔷 \e[34mJira\e[0m" ; jsre; echo -e "✅ \e[32mThings\n\e[0m"; things.sh all'
 azid () { az resource show --ids ${RID} -o json }
 # Path
 #export PATH="$PATH:~/bin"
