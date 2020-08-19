@@ -287,7 +287,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
 # Homebrew Overrides
-export PATH="/usr/local/opt/helm@2/bin:$PATH"
+#export PATH="/usr/local/opt/helm@2/bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -303,3 +303,6 @@ if [ -f '/Users/chrismurray/Downloads/google-cloud-sdk/completion.zsh.inc' ]; th
 
 source ~/.config/.iterm2_shell_integration.zsh
 export PATH="/usr/local/sbin:$PATH"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/vault vault
