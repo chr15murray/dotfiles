@@ -225,6 +225,7 @@ alias proxyoff='unset CLOUDSDK_ACTIVE_CONFIG_NAME https_proxy no_proxy'
 alias whatsmyip='curl https://ipv4.icanhazip.com'
 alias gs='git status'
 alias gpr='gh pr create -w'
+#alias gpush='git config alias.publish "push -u origin"'
 alias cleardnscache='dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 alias vim="nvim"
 alias cat="bat -pp"
