@@ -228,7 +228,7 @@ alias gpr='gh pr create -w'
 #alias gpush='git config alias.publish "push -u origin"'
 alias cleardnscache='dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 alias vim="nvim"
-alias cat="bat -pp"
+alias cat="bat"
 alias p="pulumi"
 alias pp="pulumi preview --diff"
 alias pup="pulumi up"
@@ -247,6 +247,9 @@ export PATH="$PATH:/Users/chrismurray/google-cloud-sdk/bin"
 
 # History Control
 export HISTCONTROL=ignoreboth
+
+# Set Bat config location
+# export BAT_CONFIG_PATH="~/.config/bat/bat.conf"
 
 # Auto completion
 #complete -C /Users/chrismurray/bin/terraform terraform
