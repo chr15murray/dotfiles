@@ -1,10 +1,20 @@
-#!/bin/sh
-
-echo "--Starting Bootstrap Script--"
+#!/bin/bash
 
 system_type=$(uname -s)
 
-if [ "$system_type" = "Darwin" ]; then
+echo "--Starting Bootstrap Script--"
+
+if [ "$system_type" = "Linux" ]; then
+  echo "Linux Detected"
+  
+  # Install Apt Packages
+  xargs -a <(awk '! /^ *(#|$)/' ./scripts/aptlist) -r -- sudo apt install -y
+
+  #Cleaning up unused apt packages
+  sudo apt autoremove -y
+
+elif [ "$system_type" = "Darwin" ]; then
+  echo "Mac Detected"
 
   # install homebrew if it's missing
   if ! command -v brew >/dev/null 2>&1; then
@@ -51,6 +61,9 @@ if [ "$system_type" = "Darwin" ]; then
 
   # Mac Settings
   ${HOME}/.config/yadm/scripts/mac-settings.sh
+
+else
+  echo "No Bootstrap configuration for " $system_type
 
 fi
 
