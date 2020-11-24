@@ -13,6 +13,13 @@ if [ "$system_type" = "Linux" ]; then
   #Cleaning up unused apt packages
   sudo apt autoremove -y
 
+  # Install Snaps
+  while IFS="" read -r p || [ -n "$p" ]
+  do
+  sudo snap install $p
+  done < ./scripts/snaplist
+
+
 elif [ "$system_type" = "Darwin" ]; then
   echo "Mac Detected"
 
