@@ -1,3 +1,4 @@
+1password
 apt-transport-https
 bat
 brave-browser
@@ -9,7 +10,7 @@ git
 handbrake
 handbrake-cli
 htop
-insync
+#insync
 make
 neofetch
 net-tools
@@ -20,4 +21,5 @@ spotify-client
 stacer
 tilix
 timeshift
+vim
 yadm
