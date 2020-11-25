@@ -1,6 +1,7 @@
 apt-transport-https
 bat
 brave-browser
+balena-etcher-electron
 curl
 docker.io
 figlet
