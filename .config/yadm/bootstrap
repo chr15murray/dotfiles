@@ -42,12 +42,12 @@ if [ "$system_type" = "Linux" ]; then
   if [ -d ~/git/makeinstall/dash-to-dock ]; then
     pushd ~/git/makeinstall/dash-to-dock
     git pull
-    sudo make install 
+    make install 
     popd
   else
     git clone https://github.com/micheleg/dash-to-dock.git ~/git/makeinstall/dash-to-dock
     pushd ~/git/makeinstall/dash-to-dock
-    sudo make install
+    make install
     popd
   fi
 
