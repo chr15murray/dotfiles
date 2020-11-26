@@ -25,7 +25,7 @@ if [ "$system_type" = "Linux" ]; then
   sudo apt update
 
   # Install Apt Packages
-  xargs -a <(awk '! /^ *(#|$)/' ./scripts/aptlist) -r -- sudo apt install -y
+  xargs -a <(awk '! /^ *(#|$)/' ~/.config/yadm/scripts/aptlist) -r -- sudo apt install -y
 
   #Cleaning up unused apt packages
   sudo apt autoremove -y
@@ -34,7 +34,22 @@ if [ "$system_type" = "Linux" ]; then
   while IFS="" read -r p || [ -n "$p" ]
   do
   sudo snap install $p
-  done < ./scripts/snaplist
+  done < ~/.config/yadm/scripts/snaplist
+  
+  # Make Installs
+  mkdir -p ~/git/makeinstall
+  # Dash to Dock
+  if [ -d ~/git/makeinstall/dash-to-dock ]; then
+    pushd ~/git/makeinstall/dash-to-dock
+    git pull
+    sudo make install 
+    popd
+  else
+    git clone https://github.com/micheleg/dash-to-dock.git ~/git/makeinstall/dash-to-dock
+    pushd ~/git/makeinstall/dash-to-dock
+    sudo make install
+    popd
+  fi
 
 
 elif [ "$system_type" = "Darwin" ]; then

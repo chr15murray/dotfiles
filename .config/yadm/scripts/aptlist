@@ -1,4 +1,5 @@
 1password
+alacritty
 apt-transport-https
 bat
 brave-browser
@@ -6,7 +7,9 @@ balena-etcher-electron
 curl
 docker.io
 figlet
+gettext
 git
+gnome-tweaks
 handbrake
 handbrake-cli
 htop
@@ -15,11 +18,13 @@ make
 neofetch
 net-tools
 neovim
+nfs-common
 snapd
 software-properties-common
 spotify-client
 stacer
 tilix
 timeshift
+tree
 vim
 yadm
