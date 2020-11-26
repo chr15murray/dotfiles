@@ -141,7 +141,7 @@ POWERLEVEL9K_CUSTOM_WARN_BACKGROUND='steel'
 plugins=(
   git
   kube-ps1
-  wakatime
+  zsh-wakatime
   zsh-completions
   emoji
   zsh-autosuggestions
@@ -198,6 +198,8 @@ EOF
 }
 
 # Alias
+[ $( command -v batcat) ] && alias cat=batcat 
+[ $( command -v bat) ] && alias cat=bat
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias k=kubectl
@@ -228,7 +230,6 @@ alias gpr='gh pr create -w'
 #alias gpush='git config alias.publish "push -u origin"'
 alias cleardnscache='dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
 alias vim="nvim"
-alias cat="bat"
 alias p="pulumi"
 alias pp="pulumi preview --diff"
 alias pup="pulumi up"
@@ -269,7 +270,8 @@ if [ -f "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOM
 # source ~/keys/terraform.rc
 
 # Activate antigen
-source /usr/local/share/antigen/antigen.zsh
+if [ -f /usr/local/share/antigen/antigen.sh ]; then source /usr/local/share/antigen/antigen.zsh; fi 
+if [ -f /usr/share/zsh-antigen/antigen.sh ]; then source /usr/share/zsh-antigen/antigen.zsh; fi 
 
 # Ledger
 export OPENSSL_ROOT_DIR=/usr/local/Cellar/openssl/1.0.2r
@@ -304,9 +306,9 @@ fpath=(~/.config/zsh_completions $fpath)
 
 # Load last to avoid crashes
 autoload -U compinit && compinit
-source <(stern --completion=zsh)
-source /usr/local/etc/bash_completion.d/az
-if [ -f "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc"; fi
+[ $(command -v stern) ] && source <(stern --completion=zsh)
+[ -f "/usr/local/etc/bash_completion.d/az" ] && source /usr/local/etc/bash_completion.d/az
+[ -f "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc" ] && . "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc"
 
 source ~/.config/.iterm2_shell_integration.zsh
 export PATH="/usr/local/sbin:$PATH"

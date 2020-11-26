@@ -6,6 +6,7 @@ brave-browser
 balena-etcher-electron
 curl
 docker.io
+exa
 figlet
 gettext
 git
@@ -29,3 +30,4 @@ tree
 vim
 yadm
 zsh
+zsh-antigen
