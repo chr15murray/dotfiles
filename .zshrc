@@ -9,7 +9,7 @@ fi
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/chrismurray/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 # Setup Fonts and Icons
 # Refernce NerdFont: https://nerdfonts.com/#cheat-sheet
@@ -243,7 +243,7 @@ alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 azid () { az resource show --ids ${RID} -o json }
 # Path
 #export PATH="$PATH:~/bin"
-export PATH="$PATH:/Users/chrismurray/google-cloud-sdk/bin"
+export PATH="$PATH:${HOME}/google-cloud-sdk/bin"
 
 # History Control
 export HISTCONTROL=ignoreboth
@@ -261,10 +261,10 @@ export HISTCONTROL=ignoreboth
 export AWS_SDK_LOAD_CONFIG=1
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/chrismurray/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/chrismurray/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f "${HOME}/Downloads/google-cloud-sdk/path.zsh.inc" ]; then . "${HOME}/Downloads/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/chrismurray/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/chrismurray/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc"; fi
 
 # source ~/keys/terraform.rc
 
@@ -284,7 +284,7 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 
-export PATH=/Users/chrismurray/bin:$PATH
+export PATH=${HOME}/bin:$PATH
 
 #[[ -e "/Users/chrismurray/lib/oracle-cli/lib/python3.7/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/Users/chrismurray/lib/oracle-cli/lib/python3.7/site-packages/oci_cli/bin/oci_autocomplete.sh"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -306,7 +306,7 @@ fpath=(~/.config/zsh_completions $fpath)
 autoload -U compinit && compinit
 source <(stern --completion=zsh)
 source /usr/local/etc/bash_completion.d/az
-if [ -f '/Users/chrismurray/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/chrismurray/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc"; fi
 
 source ~/.config/.iterm2_shell_integration.zsh
 export PATH="/usr/local/sbin:$PATH"

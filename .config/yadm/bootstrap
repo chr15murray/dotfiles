@@ -80,29 +80,34 @@ elif [ "$system_type" = "Darwin" ]; then
     defaults write com.matryer.BitBar pluginsDirectory "$HOME/bitbar"
   fi
 
-  if [ ! -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]; then
-    echo "Installing Oh-My-Zsh"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    mv $HOME/.zshrc $HOME/.zshrc_new
-    mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
-  fi
-
-  # Install ZSH Custom Plugins if not present
-  echo "Installing any missing zsh plugins - Will not update"
-  ZSH_CUSTOM=~/.oh-my-zsh/custom
-  [ ! -d $ZSH_CUSTOM/themes/powerlevel10k ] && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-
-  [ ! -d $ZSH_CUSTOM/plugins/wakatime ] && git clone --depth=1 https://github.com/wbingli/zsh-wakatime.git $ZSH_CUSTOM/plugins/wakatime
-
-  [ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ] && git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-
-  [ ! -d $ZSH_CUSTOM/plugins/zsh-completions ] && git clone https://github.com/zsh-users/zsh-completions $ZSH_CUSTOM/plugins/zsh-completions
 
   # Mac Settings
   ${HOME}/.config/yadm/scripts/mac-settings.sh
 
-else
+else 
   echo "No Bootstrap configuration for " $system_type
+  exit 1
+fi 
 
+
+
+# Common Tools
+if [ ! -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]; then
+  echo "Installing Oh-My-Zsh"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  mv $HOME/.zshrc $HOME/.zshrc_new
+  mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
 fi
+
+# Install ZSH Custom Plugins if not present
+echo "Installing any missing zsh plugins - Will not update"
+ZSH_CUSTOM=~/.oh-my-zsh/custom
+[ ! -d $ZSH_CUSTOM/themes/powerlevel10k ] && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+[ ! -d $ZSH_CUSTOM/plugins/wakatime ] && git clone --depth=1 https://github.com/wbingli/zsh-wakatime.git $ZSH_CUSTOM/plugins/wakatime
+
+[ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ] && git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+[ ! -d $ZSH_CUSTOM/plugins/zsh-completions ] && git clone https://github.com/zsh-users/zsh-completions $ZSH_CUSTOM/plugins/zsh-completions
+
 
