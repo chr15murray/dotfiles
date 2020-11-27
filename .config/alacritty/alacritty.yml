@@ -371,13 +371,14 @@ colors:
 # The value `0.0` is completely transparent and `1.0` is opaque.
 background_opacity: 0.85
 
-#selection:
+selection:
   # This string contains all characters that are used as separators for
   # "semantic words" in Alacritty.
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
   #save_to_clipboard: false
+  save_to_clipboard: true
 
 #cursor:
   # Cursor style
@@ -766,7 +767,7 @@ key_bindings:
   #- { key: N,      mods: Shift,         mode: Vi, action: SearchPrevious          }
 
   # (Windows, Linux, and BSD only)
-  - { key: V,              mods: Control|Shift,           action: Paste            }
+  - { key: V,              mods: Control,                  action: Paste            }
   #- { key: C,              mods: Control|Shift,           action: Copy             }
   #- { key: F,              mods: Control|Shift,           action: SearchForward    }
   #- { key: B,              mods: Control|Shift,           action: SearchBackward   }
@@ -778,6 +779,7 @@ key_bindings:
   #- { key: NumpadAdd,      mods: Control,                 action: IncreaseFontSize }
   - { key: Minus,          mods: Control,                 action: DecreaseFontSize }
   #- { key: NumpadSubtract, mods: Control,                 action: DecreaseFontSize }
+  - { key: N,              mods: Control,                 action: SpawnNewInstance }
 
   # (Windows only)
   #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
