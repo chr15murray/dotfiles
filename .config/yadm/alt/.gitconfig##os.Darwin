@@ -1,0 +1,7 @@
+[user]
+	name = Chris Murray
+	email = chris@distrail.io
+[diff "sopsdiffer"]
+	textconv = sops -d
+[pull]
+	rebase = false
