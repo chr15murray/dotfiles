@@ -1,7 +1,8 @@
 #!/bin/bash
 
 titleemoji=":monkey_face:"
-datetime=$(date "+%H:%M %a %d %b")
+#datetime=$(date "+%H:%M %a %d %b")
+datetime=$(date "+%a %d %b")
 
 echo "${titleemoji} ${datetime}"
 echo "---"
