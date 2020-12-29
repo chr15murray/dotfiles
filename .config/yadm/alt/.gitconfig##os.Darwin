@@ -5,3 +5,5 @@
 	textconv = sops -d
 [pull]
 	rebase = false
+[core]
+	excludesfile = /Users/chrismurray/.config/gitconfig/.gitignore_global

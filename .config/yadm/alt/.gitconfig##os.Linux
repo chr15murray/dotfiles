@@ -5,3 +5,5 @@
 	helper = store
 [pull]
 	rebase = false
+[core]
+	excludesfile = /Users/chrismurray/.config/gitconfig/.gitignore_global
