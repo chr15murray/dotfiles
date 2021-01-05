@@ -242,6 +242,11 @@ alias helm2='brew unlink helm && brew link helm@2 --force && helm version && exp
 alias helm3='brew unlink helm@2 && brew link helm && helm version && export HELM_EXPERIMENTAL_OCI=1'
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 azid () { az resource show --ids ${RID} -o json }
+# Kitty Aliases
+alias kdiff="kitty +kitten diff"
+alias kcat="kitty +kitten icat"
+
+
 # Path
 #export PATH="$PATH:~/bin"
 export PATH="$PATH:${HOME}/google-cloud-sdk/bin"
@@ -315,3 +320,6 @@ export PATH="/usr/local/sbin:$PATH"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
+
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
