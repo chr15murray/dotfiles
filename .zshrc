@@ -244,7 +244,7 @@ alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 azid () { az resource show --ids ${RID} -o json }
 # Kitty Aliases
 alias kdiff="kitty +kitten diff"
-alias kcat="kitty +kitten icat"
+alias icat="kitty +kitten icat"
 
 
 # Path
