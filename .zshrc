@@ -245,6 +245,8 @@ azid () { az resource show --ids ${RID} -o json }
 # Kitty Aliases
 alias kdiff="kitty +kitten diff"
 alias icat="kitty +kitten icat"
+# Workaround / Compatibility for SSH from kitty - https://sw.kovidgoyal.net/kitty/faq.html#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer
+alias ssh="kitty +kitten ssh"
 
 
 # Path
