@@ -272,6 +272,9 @@ if [ -f "${HOME}/Downloads/google-cloud-sdk/path.zsh.inc" ]; then . "${HOME}/Dow
 # The next line enables shell command completion for gcloud.
 if [ -f "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc"; fi
 
+# Add MySQL to Path
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
 # source ~/keys/terraform.rc
 
 # Activate antigen
