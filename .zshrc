@@ -185,6 +185,8 @@ source $ZSH/oh-my-zsh.sh
 #ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=67"
 #source <(stern --completion=zsh)
 
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 curltime () {curl -w @- -o /dev/null -s "$@" <<'EOF'
     time_namelookup:  %{time_namelookup}\n
        time_connect:  %{time_connect}\n
