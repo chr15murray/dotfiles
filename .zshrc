@@ -146,6 +146,8 @@ plugins=(
   emoji
   zsh-autosuggestions
   taskwarrior
+  docker
+  docker-compose
 )
 
 source $ZSH/oh-my-zsh.sh
