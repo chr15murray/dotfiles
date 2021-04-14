@@ -2,7 +2,7 @@
 	email = chris@distrail.io
 	name = chr15murray
 [credential]
-	helper = cache
+	helper = store --file ~/keys/gh
 [pull]
 	rebase = false
 [core]
