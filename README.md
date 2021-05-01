@@ -18,7 +18,7 @@ Use the UI to configure:
 Now unlock the Vault before proceeding
 
 ### Setup github
-`git config --global credential.helper 'store -file ~/keys/gh'`
+`git config --global credential.helper 'store --file ~/keys/gh'`
 
 
 ## MAC Pre-setup
