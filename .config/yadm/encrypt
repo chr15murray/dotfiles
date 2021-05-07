@@ -1,0 +1,4 @@
+.config/spotify-tui/client.yml
+.keys/*
+keys/*
+./ssh/*
