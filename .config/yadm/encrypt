@@ -2,8 +2,4 @@
 .keys/*
 keys/*
 ./ssh/*
-<<<<<<< HEAD
 .wakatime.cfg
-=======
-.waktime.cfg
->>>>>>> 9be240070791e8fe984347d6f8a964bc9641edc4
