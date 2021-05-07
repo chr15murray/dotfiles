@@ -1,42 +1,51 @@
 # dotfiles
 Yadm managed dotfiles
 
-### YADM Setup
+## ARCH Pre-Setup
+### Install Required packages
 ```
-# install git as part of xcode (Mac Only)
+sudo pacman -Syu paru cryfs
+paru -Syu yadm
+```
+
+### Setup KDE Plasma Vault
+`mkdir ~/keys`
+Use the UI to configure:
+- Name: keys
+- Encryption: CryFs
+- Mount Path: `/home/chris/keys`
+- Password: something suitable strong
+Now unlock the Vault before proceeding
+
+### Setup github
+`git config --global credential.helper 'store --file ~/keys/gh'`
+
+
+## MAC Pre-setup
+### install git as part of xcode (Mac Only)
 xcode-select --install
 
-# Setup login info
-git config --global user.name chr15murray
+### install and setup yadm
+brew install yadm
 
-#Credential Helper (Linux Only)
-git config --global credential.helper cache
-
-# Setup email to whichever address makes sense...
-#git config --global user.email c.murray@iesohealth.com
-#git config --global user.email chris@distrail.io
-#git config --global user.email chr15murr4y@gmail.com
-
-mkdir ~/git
-cd ~/git
-
-# Prepare yadm
-git clone https://github.com/chr15murray/dotfiles.git
-
-# You don't need this so we can delete it but we tested auth to github.
-rm -rf ~/git/dotfiles
-
-
-# Install Homebrew (Mac Only)
+### Install Homebrew (Mac Only)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-# install and setup yadm
-brew install yadm
-sudo apt install yadm 
-yadm clone https://github.com/chr15murray/dotfiles.git
 
-# Follow the bootstrap prompts
-# After ZSH is configured `exit`
+## Setup
+### git login info
+`git config --global user.name chr15murray`
+
+### Setup email to whichever address makes sense...
+```
+git config --global user.email chris@distrail.io
+```
+
+### YADM Setup
+`yadm clone https://github.com/chr15murray/dotfiles.git`
+
+Follow the bootstrap prompts
+After ZSH is configured `exit`
 
 ```
 
