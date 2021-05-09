@@ -542,6 +542,4 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
 
 # Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
-
-neofetch
+# kitty + complete setup zsh | source /dev/stdin

@@ -1,0 +1,7 @@
+# Configuration for Alacritty on Linux
+
+window:
+  decorations: none
+
+font:
+  size: 12
