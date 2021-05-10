@@ -12,3 +12,8 @@ window:
 
 font:
   size: 8
+
+shell:
+  program: /usr/bin/zsh
+  args: 
+    - --login

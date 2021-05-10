@@ -5,3 +5,8 @@ window:
 
 font:
   size: 12
+
+shell:
+  program: /usr/local/bin/zsh
+  args: 
+    - --login
