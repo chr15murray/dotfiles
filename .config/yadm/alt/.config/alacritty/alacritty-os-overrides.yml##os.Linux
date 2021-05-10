@@ -11,7 +11,7 @@ window:
   decorations: full
 
 font:
-  size: 8
+  size: 11
 
 shell:
   program: /usr/bin/zsh
