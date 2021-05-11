@@ -3,9 +3,9 @@ aur/app-outlet-bin
 community/argocd
 community/asciinema
 aur/azure-cli
-aur/azuredatastudio
 aur/azure-functions-core-tools-bin
 community/bat
+chaotic-aur/bauh
 chaotic-aur/brave-bin
 aur/consul-template-bin
 community/cryfs
@@ -13,9 +13,9 @@ community/discord
 community/docker
 community/docker-compose
 aur/envconsul-git
-aur/etcher-bin
 community/exa
 community/flameshot
+extra/flatpak
 extra/fping
 extra/gimp
 extra/git
