@@ -95,9 +95,9 @@ ZSH_THEME='powerlevel10k/powerlevel10k'
 # automatically load bash completion functions
 # autoload -U +X bashcompinit && bashcompinit
 
-HISTFILE=~/.zhistory
-HISTSIZE=50000
-SAVEHIST=10000
+# HISTFILE=~/.zhistory
+# HISTSIZE=50000
+# SAVEHIST=10000
 
 
 ## Keys
@@ -467,7 +467,11 @@ alias ssh="kitty +kitten ssh"
 export PATH="$PATH:${HOME}/google-cloud-sdk/bin"
 
 # History Control
+setopt INC_APPEND_HISTORY
+setopt EXTENDED_HISTORY
 export HISTCONTROL=ignoreboth
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
 
 # NVM Configuration
 export NVM_DIR="$HOME/.nvm"
