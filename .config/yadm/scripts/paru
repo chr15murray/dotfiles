@@ -7,8 +7,10 @@ aur/azure-functions-core-tools-bin
 community/bat
 chaotic-aur/bauh
 chaotic-aur/brave-bin
+aur/cloudflared
 aur/consul-template-bin
 community/cryfs
+community/dfu-util
 community/discord
 community/docker
 community/docker-compose
@@ -59,6 +61,7 @@ community/shellcheck
 aur/skaffold-git
 chaotic-aur/slack-desktop
 aur/sonar-scanner
+aur/snyk
 community/sops
 community/speedtest-cli
 aur/spotify

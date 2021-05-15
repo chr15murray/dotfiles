@@ -8,7 +8,7 @@ window:
    columns: 100
    lines: 30
   dynamic_padding: true
-  decorations: full
+  decorations: none
 
 font:
   size: 10
