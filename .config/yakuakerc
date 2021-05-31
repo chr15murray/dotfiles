@@ -1,0 +1,13 @@
+[Appearance]
+BackgroundColorOpacity=85
+Translucency=true
+
+[Desktop Entry]
+DefaultProfile=Zsh.profile
+
+[Dialogs]
+FirstRun=false
+
+[Window]
+DynamicTabTitles=true
+ToggleToFocus=true
