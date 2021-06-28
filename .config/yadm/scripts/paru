@@ -25,6 +25,7 @@ community/github-cli
 #gitversion
 extra/gnome-keyring
 aur/grpcurl
+aur/hadolint
 community/helm
 community/helmfile
 aur/helm-diff
@@ -50,12 +51,14 @@ aur/nerd-fonts-hack
 community/nextcloud-client
 community/neovim
 community/nodejs
+aur/notion-app-enhanced
 community/npm
 chaotic-aur/nvm
 community/obs-studio
 aur/perl-asciio
 aur/pulumi
 community/radeontop
+aur/rancher-k3d-bin
 community/ripgrep
 aur/ryzen-controller-bin
 aur/screenkey-git

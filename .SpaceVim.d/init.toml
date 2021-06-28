@@ -40,4 +40,5 @@ default_height = 30
 
 [[custom_plugins]]
   repo = "connorholyday/vim-snazzy"
+  repo = "tpope/vim-markdown"
   merged = 0
