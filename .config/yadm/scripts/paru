@@ -24,6 +24,7 @@ extra/git
 community/github-cli
 #gitversion
 extra/gnome-keyring
+aur/gron
 aur/grpcurl
 aur/hadolint
 community/helm
