@@ -415,6 +415,7 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias k=kubectl
 ka () { kubectl "$@" --all-namespaces; }
+alias kall='kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found'
 alias kp='https_proxy=127.0.0.1:8888 kubectl'
 alias kubensp='https_proxy=127.0.0.1:8888 kubens'
 #alias ll='ls -lah'
