@@ -16,7 +16,7 @@ import:
 # set by alacritty itself.
 # env:
   # TERM variable
-  #
+  #font
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
@@ -101,14 +101,14 @@ scrolling:
   multiplier: 3
 
 # Font configuration
-font:
-  normal:
-    family: Hack Nerd Font
-    style: Regular
-  bold:
-    family: Hack Nerd Font
-  italic:
-    family: Hack Nerd Font
+# font:
+#   normal:
+#     family: Hack Nerd Font
+#     style: Regular
+#   bold:
+#     family: Hack Nerd Font
+#   italic:
+#     family: Hack Nerd Font
   # Normal (roman) font face
   #normal:
     # Font family

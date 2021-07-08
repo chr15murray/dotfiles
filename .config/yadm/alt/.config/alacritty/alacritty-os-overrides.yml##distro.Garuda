@@ -11,7 +11,15 @@ window:
   decorations: none
 
 font:
-        size: 8
+  size: 8
+  normal:
+    family: Hack Nerd Font
+    style: Regular
+  bold:
+    family: Hack Nerd Font
+  italic:
+    family: Hack Nerd Font
+
 
 shell:
   program: /usr/bin/zsh
