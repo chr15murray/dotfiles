@@ -4,6 +4,7 @@ apt-transport-https
 bat
 brave-browser
 #balena-etcher-electron
+cryfs
 curl
 docker.io
 exa
@@ -22,6 +23,7 @@ net-tools
 neovim
 nfs-common
 #snapd
+sirikali
 software-properties-common
 spotify-client
 stacer

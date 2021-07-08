@@ -20,6 +20,17 @@ Now unlock the Vault before proceeding
 ### Setup github
 `git config --global credential.helper 'store --file ~/keys/gh'`
 
+## PopOS! Pre-Setup
+### Install Required packages
+`sudo apt update and sudo apt install yadm cryfs sirikali`
+Use the UI to configure a Favorite:
+- Volume Path / Encrypted Folder Path: /home/chris/.keys-volume
+- Mount Point Path: /home/keys
+- File System: CryFs
+- Password: something suitably strong
+Now unlock/mount the File system
+
+### Setup Github as per Arch
 
 ## MAC Pre-setup
 ### install git as part of xcode (Mac Only)
