@@ -12,15 +12,15 @@ if [ "$system_type" = "Linux" ]; then
     # sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort ~/.config/yadm/scripts/pacmanlist))
     paru -Syu --needed $(cat ~/.config/yadm/scripts/paru | grep -v "#")
 
-  elif [ -f "/etc/deb-release-check" ]; then
+  elif [ -f "/etc/debian_version" ]; then
   # This needs updating to only run for debian based systems
     # App Repos
     # Brave Browser
     curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
     echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
     # Etcher
-    echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
-    sudo apt-key adv --keyserver hkps://keyserver.ubuntu.com:443 --recv-keys 379CE192D401AB61
+    #echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
+    #sudo apt-key adv --keyserver hkps://keyserver.ubuntu.com:443 --recv-keys 379CE192D401AB61
     # Spotify
     curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add - 
     echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
@@ -38,25 +38,25 @@ if [ "$system_type" = "Linux" ]; then
     sudo apt autoremove -y
 
     # Install Snaps
-    while IFS="" read -r p || [ -n "$p" ]
-    do
-    sudo snap install $p
-    done < ~/.config/yadm/scripts/snaplist
+    #while IFS="" read -r p || [ -n "$p" ]
+    #do
+    #sudo snap install $p
+    #done < ~/.config/yadm/scripts/snaplist
 
     # Make Installs
-    mkdir -p ~/git/makeinstall
+    #mkdir -p ~/git/makeinstall
     # Dash to Dock
-    if [ -d ~/git/makeinstall/dash-to-dock ]; then
-      pushd ~/git/makeinstall/dash-to-dock
-      git pull
-      make install 
-      popd
-    else
-      git clone https://github.com/micheleg/dash-to-dock.git ~/git/makeinstall/dash-to-dock
-      pushd ~/git/makeinstall/dash-to-dock
-      make install
-      popd
-    fi
+    #if [ -d ~/git/makeinstall/dash-to-dock ]; then
+    #  pushd ~/git/makeinstall/dash-to-dock
+    #  git pull
+    #  make install 
+    #  popd
+    #else
+    #  git clone https://github.com/micheleg/dash-to-dock.git ~/git/makeinstall/dash-to-dock
+    #  pushd ~/git/makeinstall/dash-to-dock
+    #  make install
+    #  popd
+    #fi
 
   fi
 
