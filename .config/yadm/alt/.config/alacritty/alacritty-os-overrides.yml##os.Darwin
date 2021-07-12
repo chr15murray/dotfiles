@@ -5,6 +5,14 @@ window:
 
 font:
   size: 12
+  normal:
+    family: Hack Nerd Font
+    style: Regular
+  bold:
+    family: Hack Nerd Font
+  italic:
+    family: Hack Nerd Font
+
 
 shell:
   program: /usr/local/bin/zsh
