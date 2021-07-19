@@ -7,6 +7,7 @@ aur/azure-functions-core-tools-bin
 community/bat
 chaotic-aur/bauh
 chaotic-aur/brave-bin
+aur/civo-bin
 aur/cloudflared
 aur/consul-template-bin
 community/cryfs
@@ -26,6 +27,7 @@ community/github-cli
 extra/gnome-keyring
 aur/gron
 aur/grpcurl
+aur/google-cloud-sdk
 aur/hadolint
 community/helm
 community/helmfile
@@ -52,13 +54,12 @@ extra/nmap
 aur/nerd-fonts-hack
 community/nextcloud-client
 community/neovim
-community/nodejs
+community/nodejs-lts-erbium
 aur/notion-app-enhanced
 community/npm
 chaotic-aur/nvm
 community/obs-studio
 aur/perl-asciio
-aur/pulumi
 community/radeontop
 aur/rancher-k3d-bin
 community/ripgrep
@@ -80,7 +81,7 @@ community/telegram-desktop
 community/terraform
 chaotic-aur/timeshift
 chaotic-aur/timeshift-autosnap
-community/tldr
+community/tealdeer
 community/tmux
 #aur/todoist
 aur/todoist-electron
