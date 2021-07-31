@@ -40,6 +40,7 @@ community/hugo
 chaotic-aur/joplin
 chaotic-aur/joplin-desktop
 community/jq
+community/k9s
 extra/kdenlive
 community/kitty
 community/kubectx
@@ -60,6 +61,7 @@ community/npm
 chaotic-aur/nvm
 community/obs-studio
 aur/perl-asciio
+community/popeye
 community/radeontop
 aur/rancher-k3d-bin
 community/ripgrep
