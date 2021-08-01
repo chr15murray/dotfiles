@@ -463,6 +463,11 @@ alias icat="kitty +kitten icat"
 # Workaround / Compatibility for SSH from kitty - https://sw.kovidgoyal.net/kitty/faq.html#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer
 #alias ssh="kitty +kitten ssh"
 
+# Arch specific Aliases
+if [ -f "/etc/arch-release" ]; then
+  alias open='xdg-open'
+fi
+
 
 # Path
 #export PATH="$PATH:~/bin"
