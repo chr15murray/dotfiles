@@ -19,8 +19,8 @@ fi
 # Setup Fonts and Icons
 # Refernce NerdFont: https://nerdfonts.com/#cheat-sheet
 # Reference PowerLevel9K: get_icon_names
-POWERLEVEL9K_MODE='nerdfont-complete'
-export POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uf09b'
+#POWERLEVEL9K_MODE='nerdfont-complete'
+#export POWERLEVEL9K_VCS_GIT_GITHUB_ICON='\uf09b'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -228,61 +228,61 @@ alias upd='sudo reflector --latest 5 --age 2 --fastest 5 --protocol https --sort
 ### END Garuda Stock Settings
 
 # Chris's Powerlevel configs
-zsh_terraform_env(){
-    local tfenv=$(printenv TF_CLI_ARGS_plan | cut -d "/" -f2)
-    local color='%F{blue}'
-    [[ $tfenv != "" ]] &&  echo -n "%{$color%}\ue2a6  $tfenv%{%f%}"
-}
+# zsh_terraform_env(){
+#     local tfenv=$(printenv TF_CLI_ARGS_plan | cut -d "/" -f2)
+#     local color='%F{blue}'
+#     [[ $tfenv != "" ]] &&  echo -n "%{$color%}\ue2a6  $tfenv%{%f%}"
+# }
 
-zsh_vault_env(){
-    local vault=$(printenv VAULT_ADDR | cut -d "." -f1 | cut -d "-" -f2)
-    local color='%F{gold}'
-    [[ $vault != "" ]] &&  echo -n "%{$color%}\uf023  $vault%{%f%}"
-}
+# zsh_vault_env(){
+#     local vault=$(printenv VAULT_ADDR | cut -d "." -f1 | cut -d "-" -f2)
+#     local color='%F{gold}'
+#     [[ $vault != "" ]] &&  echo -n "%{$color%}\uf023  $vault%{%f%}"
+# }
 
-zsh_env_mismatch(){
-    local tfenv=$(printenv TF_CLI_ARGS_plan | cut -d "/" -f2)
-    local vault=$(printenv VAULT_ADDR | cut -d "." -f1 | cut -d "-" -f2)
-    local k8s=$(kubectl config current-context)
-    local color='%F{yellow}'
-    # WARN if Terraform and Vault environments don't match
-    [[ $vault != "" && $tfenv != "" ]] && [[ $vault != $tfenv ]] && echo -n "%{$color%}\uf071 environment mismatch%{%f%}"
-    # WARN if kube context doesn't contain tf environment
-    [[ $tfenv != "" ]] && [[ $(echo -n $k8s | grep -q $tfenv) == 1 ]] && echo -n "%{$color%}\uf071 context mismatch%{%f%}"
+# zsh_env_mismatch(){
+#     local tfenv=$(printenv TF_CLI_ARGS_plan | cut -d "/" -f2)
+#     local vault=$(printenv VAULT_ADDR | cut -d "." -f1 | cut -d "-" -f2)
+#     local k8s=$(kubectl config current-context)
+#     local color='%F{yellow}'
+#     # WARN if Terraform and Vault environments don't match
+#     [[ $vault != "" && $tfenv != "" ]] && [[ $vault != $tfenv ]] && echo -n "%{$color%}\uf071 environment mismatch%{%f%}"
+#     # WARN if kube context doesn't contain tf environment
+#     [[ $tfenv != "" ]] && [[ $(echo -n $k8s | grep -q $tfenv) == 1 ]] && echo -n "%{$color%}\uf071 context mismatch%{%f%}"
 
-}
+# }
 
-zsh_iapproxy(){
-    local httpsproxy=$(printenv https_proxy)
-    local iaptunnelproject=$(ps -A -o command | grep start-iap-tunnel | grep -v grep | cut -d" " -f9 )
-    local color='%F{yellow}'
-    [[ $httpsproxy != "" && $iaptunnelproject != "" ]]  && echo -n "%{$color%}\uf064 $iaptunnelproject %{%f%}"
-}
+# zsh_iapproxy(){
+#     local httpsproxy=$(printenv https_proxy)
+#     local iaptunnelproject=$(ps -A -o command | grep start-iap-tunnel | grep -v grep | cut -d" " -f9 )
+#     local color='%F{yellow}'
+#     [[ $httpsproxy != "" && $iaptunnelproject != "" ]]  && echo -n "%{$color%}\uf064 $iaptunnelproject %{%f%}"
+# }
 
-zsh_proxyon(){
-    local proxyon=$(printenv CLOUDSDK_ACTIVE_CONFIG_NAME)
-    local vpnstatus=$(scutil --nc status Fetch 2> /dev/null | HEAD -n 1)
-    local color='%F{black}'
-    local icon='f817'
-    [[ $vpnstatus != "Connected" ]] && local color='%F{red}' && local icon='f818'
-    [[ $proxyon != "" ]]  && echo -n "%{$color%}\u$icon $proxyon %{%f%}"
-}
+# zsh_proxyon(){
+#     local proxyon=$(printenv CLOUDSDK_ACTIVE_CONFIG_NAME)
+#     local vpnstatus=$(scutil --nc status Fetch 2> /dev/null | HEAD -n 1)
+#     local color='%F{black}'
+#     local icon='f817'
+#     [[ $vpnstatus != "Connected" ]] && local color='%F{red}' && local icon='f818'
+#     [[ $proxyon != "" ]]  && echo -n "%{$color%}\u$icon $proxyon %{%f%}"
+# }
 
 
-POWERLEVEL9K_CUSTOM_TFENV="zsh_terraform_env"
-POWERLEVEL9K_CUSTOM_VAULT="zsh_vault_env"
-POWERLEVEL9K_CUSTOM_WARN="zsh_env_mismatch"
-POWERLEVEL9K_CUSTOM_IAPPROXY="zsh_iapproxy"
-POWERLEVEL9K_CUSTOM_PROXYON="zsh_proxyon"
+# POWERLEVEL9K_CUSTOM_TFENV="zsh_terraform_env"
+# POWERLEVEL9K_CUSTOM_VAULT="zsh_vault_env"
+# POWERLEVEL9K_CUSTOM_WARN="zsh_env_mismatch"
+# POWERLEVEL9K_CUSTOM_IAPPROXY="zsh_iapproxy"
+# POWERLEVEL9K_CUSTOM_PROXYON="zsh_proxyon"
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir virtualenv kubecontext custom_tfenv custom_vault custom_warn  newline vcs custom_iapproxy custom_proxyon )
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir virtualenv kubecontext custom_tfenv custom_vault custom_warn  newline vcs custom_iapproxy custom_proxyon )
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator)
 
-POWERLEVEL9K_VIRTUALENV_BACKGROUND='cyan'
-POWERLEVEL9K_CUSTOM_VAULT_BACKGROUND='dodgerblue3'
-POWERLEVEL9K_KUBECONTEXT_BACKGROUND='skyblue3'
-POWERLEVEL9K_KUBECONTEXT_FOREGROUND='dodgerblue3'
-POWERLEVEL9K_CUSTOM_WARN_BACKGROUND='steel'
+# POWERLEVEL9K_VIRTUALENV_BACKGROUND='cyan'
+# POWERLEVEL9K_CUSTOM_VAULT_BACKGROUND='dodgerblue3'
+# POWERLEVEL9K_KUBECONTEXT_BACKGROUND='skyblue3'
+# POWERLEVEL9K_KUBECONTEXT_FOREGROUND='dodgerblue3'
+# POWERLEVEL9K_CUSTOM_WARN_BACKGROUND='steel'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
