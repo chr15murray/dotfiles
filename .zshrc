@@ -16,6 +16,11 @@ if [ -d "$HOME/.local/bin" ]; then
     export PATH=$HOME/.local/bin:$PATH
 fi
 
+# If homebrew curl installed add to PATH
+if [ -d "/usr/local/opt/curl/bin" ]; then
+    export PATH=/usr/local/opt/curl/bin:$PATH
+fi
+
 # Setup Fonts and Icons
 # Refernce NerdFont: https://nerdfonts.com/#cheat-sheet
 # Reference PowerLevel9K: get_icon_names
