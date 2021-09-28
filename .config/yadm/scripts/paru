@@ -65,6 +65,7 @@ community/popeye
 community/radeontop
 aur/rancher-k3d-bin
 community/ripgrep
+aur/ryzenadj-git
 aur/ryzen-controller-bin
 aur/screenkey-git
 community/shellcheck
@@ -95,7 +96,7 @@ community/virtualbox
 chaotic-aur/visual-studio-code-bin
 aur/yadm
 community/yq
-aur/zenmonitor
+aur/zenmonitor3-git
 aur/zenpower-dkms
 aur/zenstates-git
 chaotic-aur/zoom
