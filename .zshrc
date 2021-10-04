@@ -350,15 +350,19 @@ alias upd='sudo reflector --latest 5 --age 2 --fastest 5 --protocol https --sort
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  asdf
+  bundler
   git
   kube-ps1
   zsh-wakatime
   zsh-completions
+  nvm
   emoji
   zsh-autosuggestions
   taskwarrior
   docker
   docker-compose
+  rbenv
   zsh-syntax-highlighting
 )
 
@@ -487,6 +491,7 @@ export HISTSIZE=1000000000
 
 # NVM Configuration
 export NVM_DIR="$HOME/.nvm"
+export NVM_AUTOLOAD=1
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
