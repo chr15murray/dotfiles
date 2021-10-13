@@ -424,6 +424,7 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias k=kubectl
 ka () { kubectl "$@" --all-namespaces; }
+kcert () {k get secret "$@" -o json | jq -r '.data."tls.crt"' | base64 -d  | openssl x509 -noout -text }
 alias kall='kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found'
 alias kp='https_proxy=127.0.0.1:8888 kubectl'
 alias kubensp='https_proxy=127.0.0.1:8888 kubens'
@@ -567,3 +568,4 @@ complete -o nospace -C /usr/local/bin/vault vault
 
 # Completion for kitty
 # kitty + complete setup zsh | source /dev/stdin
+. "/Users/chrismurray/.acme.sh/acme.sh.env"
