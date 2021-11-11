@@ -467,6 +467,7 @@ alias helm2='brew unlink helm && brew link helm@2 --force && helm version && exp
 alias helm3='brew unlink helm@2 && brew link helm && helm version && export HELM_EXPERIMENTAL_OCI=1'
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 azid () { az resource show --ids ${RID} -o json }
+alias n='nerdctl --namespace k8s.io '
 # Kitty Aliases
 alias kdiff="kitty +kitten diff"
 alias icat="kitty +kitten icat"

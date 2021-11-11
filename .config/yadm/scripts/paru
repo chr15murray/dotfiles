@@ -11,11 +11,12 @@ aur/civo-bin
 aur/cloudflared
 aur/consul-template-bin
 community/cryfs
+aur/deb2targz
 community/dfu-util
 community/discord
 community/docker
 community/docker-compose
-aur/envconsul-git
+#aur/envconsul-git
 community/exa
 community/flameshot
 extra/flatpak
@@ -94,10 +95,9 @@ aur/velero
 extra/vim
 community/virtualbox
 chaotic-aur/visual-studio-code-bin
-aur/yadm
+community/yadm
 community/yq
 aur/zenmonitor3-git
-aur/zenpower-dkms
 aur/zenstates-git
 chaotic-aur/zoom
 extra/zsh
