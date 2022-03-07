@@ -1,6 +1,4 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -468,7 +466,10 @@ alias helm3='brew unlink helm@2 && brew link helm && helm version && export HELM
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 azid () { az resource show --ids ${RID} -o json }
 alias n='nerdctl --namespace k8s.io '
+# GCloud
+alias helmlogin='export HELM_EXPERIMENTAL_OCI=1 && gcloud auth application-default print-access-token | helm registry login -u oauth2accesstoken --password-stdin https://europe-docker.pkg.dev' 
 # Kitty Aliases
+alias histcode="kitty @launch --stdin-source=@screen_scrollback code -"
 alias kdiff="kitty +kitten diff"
 alias icat="kitty +kitten icat"
 # Workaround / Compatibility for SSH from kitty - https://sw.kovidgoyal.net/kitty/faq.html#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer
@@ -570,3 +571,9 @@ complete -o nospace -C /usr/local/bin/vault vault
 # Completion for kitty
 # kitty + complete setup zsh | source /dev/stdin
 . "/Users/chrismurray/.acme.sh/acme.sh.env"
+alias devproxy="cloudflared access tcp --hostname k8s.dev.bnkd.dev --url 127.0.0.1:8888"
+alias devproxy-start="cloudflared access tcp --hostname k8s.dev.bnkd.dev --url 127.0.0.1:8888 &"
+alias devproxy="killall cloudflared"
+
+eval "$(direnv hook zsh)"
+
