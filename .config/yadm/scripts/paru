@@ -7,6 +7,7 @@ aur/azure-functions-core-tools-bin
 community/bat
 chaotic-aur/bauh
 chaotic-aur/brave-bin
+aur/buildkit-bin
 aur/civo-bin
 aur/cloudflared
 aur/consul-template-bin
@@ -38,7 +39,7 @@ extra/htop
 community/httpie
 community/httping
 community/hugo
-chaotic-aur/joplin
+#chaotic-aur/joplin
 chaotic-aur/joplin-desktop
 community/jq
 community/k9s
@@ -46,7 +47,8 @@ extra/kdenlive
 community/kitty
 community/kubectx
 community/kubeseal
-chaotic-aur/kwin-scripts-krohnkite-git
+aur/kwin-bismuth
+#chaotic-aur/kwin-scripts-krohnkite-git
 aur/lens
 chaotic-aur/mailspring
 community/minikube
@@ -54,6 +56,7 @@ community/mosh
 community/ncdu
 extra/nmap
 aur/nerd-fonts-hack
+aur/nerdctl
 community/nextcloud-client
 community/neovim
 community/nodejs-lts-erbium
@@ -66,12 +69,14 @@ community/popeye
 community/radeontop
 aur/rancher-k3d-bin
 community/ripgrep
+aur/rootlesskit
 aur/ryzenadj-git
 aur/ryzen-controller-bin
 aur/screenkey-git
 community/shellcheck
 aur/skaffold-git
 chaotic-aur/slack-desktop
+community/slirp4netns
 aur/sonar-scanner
 aur/snyk
 community/sops
@@ -79,7 +84,7 @@ community/speedtest-cli
 aur/spotify
 chaotic-aur/spotify-tui
 chaotic-aur/stacer
-aur/stern
+chaotic-aur/stern
 community/stress
 community/telegram-desktop
 community/terraform
