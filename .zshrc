@@ -519,7 +519,10 @@ if [ -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion
 # Add MySQL to Path
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
-# source ~/keys/terraform.rc
+# Golang
+export PATH=$PATH:/usr/local/go/bin:~/go/bin
+
+ source ~/keys/terraform.rc
 
 # Activate antigen
 if [ -f /usr/local/share/antigen/antigen.sh ]; then source /usr/local/share/antigen/antigen.zsh; fi 
