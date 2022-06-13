@@ -522,7 +522,10 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 # Add MySQL to Path
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
-# source ~/keys/terraform.rc
+# Golang
+export PATH=$PATH:/usr/local/go/bin:~/go/bin
+
+ source ~/keys/terraform.rc
 
 # Activate antigen
 if [ -f /usr/local/share/antigen/antigen.sh ]; then source /usr/local/share/antigen/antigen.zsh; fi 

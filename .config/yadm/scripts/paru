@@ -8,6 +8,7 @@ community/bat
 chaotic-aur/bauh
 chaotic-aur/brave-bin
 aur/buildkit-bin
+aur/cider
 aur/civo-bin
 aur/cloudflared
 aur/consul-template-bin
@@ -30,6 +31,7 @@ extra/gnome-keyring
 aur/gron
 aur/grpcurl
 aur/google-cloud-sdk
+aur/goverlay
 aur/hadolint
 community/helm
 community/helmfile
@@ -40,7 +42,7 @@ community/httpie
 community/httping
 community/hugo
 #chaotic-aur/joplin
-chaotic-aur/joplin-desktop
+#chaotic-aur/joplin-desktop
 community/jq
 community/k9s
 extra/kdenlive
@@ -50,13 +52,14 @@ community/kubeseal
 aur/kwin-bismuth
 #chaotic-aur/kwin-scripts-krohnkite-git
 aur/lens
+aur/mangohud
 chaotic-aur/mailspring
 community/minikube
 community/mosh
 community/ncdu
 extra/nmap
 aur/nerd-fonts-hack
-aur/nerdctl
+aur/nerdctl-full-bin
 community/nextcloud-client
 community/neovim
 community/nodejs-lts-erbium
@@ -84,7 +87,7 @@ community/speedtest-cli
 aur/spotify
 chaotic-aur/spotify-tui
 chaotic-aur/stacer
-chaotic-aur/stern
+aur/stern-bin
 community/stress
 community/telegram-desktop
 community/terraform

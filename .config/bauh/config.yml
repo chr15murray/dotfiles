@@ -3,6 +3,7 @@ backup:
   enabled: true
   install: null
   mode: incremental
+  remove_method: self
   type: btrfs
   uninstall: null
   upgrade: null
