@@ -525,8 +525,6 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 # Golang
 export PATH=$PATH:/usr/local/go/bin:~/go/bin
 
- source ~/keys/terraform.rc
-
 # Activate antigen
 if [ -f /usr/local/share/antigen/antigen.sh ]; then source /usr/local/share/antigen/antigen.zsh; fi 
 if [ -f /usr/share/zsh-antigen/antigen.sh ]; then source /usr/share/zsh-antigen/antigen.zsh; fi 
