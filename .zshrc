@@ -536,6 +536,9 @@ export OPENSSL_ROOT_DIR=/usr/local/Cellar/openssl/1.0.2r
 ## Enable Buildkit
 export DOCKER_BUILDKIT=1
 
+# DIRENV.net
+## Slow Timeout to avoid warnings on slow runnig direnv scripts such as those retrieving secrets
+export DIRENV_WARN_TIMEOUT=30s
 
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 
