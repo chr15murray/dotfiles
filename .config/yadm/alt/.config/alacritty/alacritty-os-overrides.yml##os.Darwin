@@ -15,6 +15,6 @@ font:
 
 
 shell:
-  program: /usr/local/bin/zsh
+  program: /opt/homebrew/bin/zsh
   args: 
     - --login
