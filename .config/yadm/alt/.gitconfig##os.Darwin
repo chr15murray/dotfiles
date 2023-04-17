@@ -7,3 +7,9 @@
 	rebase = false
 [core]
 	excludesfile = /Users/chrismurray/.config/gitconfig/.gitignore_global
+[safe]
+	directory = /Users/chrismurray/git/orrery
+[init]
+	defaultBranch = main
+[branch "master"]
+	pushRemote = no_push

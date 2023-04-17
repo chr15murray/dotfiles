@@ -202,6 +202,7 @@ alias egrep='egrep --color=auto'
 alias hw='hwinfo --short'                                   # Hardware Info
 alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed packages according to size in MB (expac must be installed)
 alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'			# List amount of -git packages
+alias kf='sudo kubefwd svc'
 
 # Get fastest mirrors 
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" 
@@ -348,19 +349,19 @@ alias upd='sudo reflector --latest 5 --age 2 --fastest 5 --protocol https --sort
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  asdf
-  bundler
+#  asdf
+#  bundler
   git
   kube-ps1
-  zsh-wakatime
+#  zsh-wakatime
   zsh-completions
   nvm
-  emoji
+#  emoji
   zsh-autosuggestions
-  taskwarrior
+#  taskwarrior
   docker
-  docker-compose
-  rbenv
+#  docker-compose
+#  rbenv
   zsh-syntax-highlighting
 )
 
@@ -551,6 +552,10 @@ export PATH=${HOME}/bin:$PATH
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 #[[ -s "/etc/grc.zsh" ]] && source /usr/local/etc/grc.zsh
 
+
+# Rancher Desktop
+export PATH="$HOME/.rd/bin:$PATH"
+
 # Settings
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
@@ -565,7 +570,7 @@ fpath=(~/.config/zsh_completions $fpath)
 
 # Load last to avoid crashes
 autoload -U compinit && compinit
-[ $(command -v stern) ] && source <(stern --completion=zsh)
+#[ $(command -v stern) ] && source <(stern --completion=zsh)
 [ -f "/usr/local/etc/bash_completion.d/az" ] && source /usr/local/etc/bash_completion.d/az
 [ -f "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc" ] && . "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc"
 
@@ -577,7 +582,7 @@ complete -o nospace -C /usr/local/bin/vault vault
 
 # Completion for kitty
 # kitty + complete setup zsh | source /dev/stdin
-. "/Users/chrismurray/.acme.sh/acme.sh.env"
+#. "/Users/chrismurray/.acme.sh/acme.sh.env"
 alias devproxy="cloudflared access tcp --hostname k8s.dev.bnkd.dev --url 127.0.0.1:8888"
 alias devproxy-start="cloudflared access tcp --hostname k8s.dev.bnkd.dev --url 127.0.0.1:8888 &"
 alias devproxy="killall cloudflared"
