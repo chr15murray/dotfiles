@@ -203,6 +203,8 @@ alias hw='hwinfo --short'                                   # Hardware Info
 alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed packages according to size in MB (expac must be installed)
 alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'			# List amount of -git packages
 alias kf='sudo kubefwd svc'
+alias z="zellij"
+alias za="~/.config/zellij/zattach.sh"
 
 # Get fastest mirrors 
 alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" 
@@ -495,7 +497,8 @@ export HISTSIZE=1000000000
 
 # NVM Configuration
 export NVM_DIR="$HOME/.nvm"
-export NVM_AUTOLOAD=1
+#export NVM_AUTOLOAD=1
+zstyle ':omz:plugins:nvm' autoload yes
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
