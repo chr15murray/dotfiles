@@ -1,7 +1,8 @@
 # Configuration for Alacritty on Linux
 
-#window:
+window:
 #  decorations: none
+  option_as_alt: Both
 
 font:
   size: 12
@@ -18,3 +19,5 @@ shell:
   program: /opt/homebrew/bin/zsh
   args: 
     - --login
+
+

@@ -1,0 +1,2 @@
+require("distrail")
+print("hello")

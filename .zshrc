@@ -543,6 +543,7 @@ export DOCKER_BUILDKIT=1
 # DIRENV.net
 ## Slow Timeout to avoid warnings on slow runnig direnv scripts such as those retrieving secrets
 export DIRENV_WARN_TIMEOUT=30s
+export DIRENV_LOG_FORMAT=""
 
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 
