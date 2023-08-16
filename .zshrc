@@ -427,6 +427,7 @@ alias k=kubectl
 ka () { kubectl "$@" --all-namespaces; }
 kcert () {k get secret "$@" -o json | jq -r '.data."tls.crt"' | base64 -d  | openssl x509 -noout -text }
 alias kall='kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found'
+alias kdbg='kubectl run debug-chrism --rm --restart=Never -it --image=nicolaka/netshoot -- bash'
 alias kp='https_proxy=127.0.0.1:8888 kubectl'
 alias kubensp='https_proxy=127.0.0.1:8888 kubens'
 #alias ll='ls -lah'
@@ -477,6 +478,8 @@ alias kdiff="kitty +kitten diff"
 alias icat="kitty +kitten icat"
 # Workaround / Compatibility for SSH from kitty - https://sw.kovidgoyal.net/kitty/faq.html#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer
 #alias ssh="kitty +kitten ssh"
+
+export EDITOR=nvim
 
 # Arch specific Aliases
 if [ -f "/etc/arch-release" ]; then
