@@ -1,2 +1,3 @@
+require("distrail.opts")
 require("distrail.remap")
-require("distrail.packer")
+require("distrail.lazy")

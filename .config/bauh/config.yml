@@ -13,14 +13,15 @@ disk:
   trim:
     after_upgrade: false
 download:
+  check_ssl: true
   icons: true
   multithreaded: true
   multithreaded_client: null
 gems:
-- arch
-- web
 - appimage
 - flatpak
+- web
+- arch
 locale: null
 memory_cache:
   data_expiration: 3600
@@ -37,7 +38,7 @@ ui:
   hdpi: true
   qt_style: oxygen
   scale_factor: 1.0
-  system_theme: false
+  system_theme: true
   table:
     max_displayed: 50
   theme: light

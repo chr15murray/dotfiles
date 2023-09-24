@@ -18,5 +18,6 @@ repositories: true
 repositories_mthread_download: false
 suggest_optdep_uninstall: false
 suggest_unneeded_uninstall: true
+suggestions_exp: 24
 sync_databases: true
 sync_databases_startup: true
