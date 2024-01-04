@@ -53,7 +53,6 @@ extra/kubectx
 extra/kubeseal
 aur/kwin-bismuth
 #chaotic-aur/kwin-scripts-krohnkite-git
-aur/lens
 aur/mangohud
 #chaotic-aur/mailspring
 extra/minikube
@@ -95,8 +94,8 @@ extra/stress
 extra/tailscale
 extra/telegram-desktop
 extra/terraform
-extra/timeshift
-chaotic-aur/timeshift-autosnap
+#extra/itimeshift
+#chaotic-aur/timeshift-autosnap
 extra/tealdeer
 extra/tmux
 #aur/todoist
