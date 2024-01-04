@@ -601,8 +601,3 @@ alias devproxy-start="cloudflared access tcp --hostname k8s.dev.bnkd.dev --url 1
 alias devproxy="killall cloudflared"
 
 eval "$(direnv hook zsh)"
-
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/chrismurray/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
