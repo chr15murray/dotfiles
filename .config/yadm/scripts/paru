@@ -32,7 +32,6 @@ extra/gnome-keyring
 aur/grpcurl
 extra/go-task
 aur/google-cloud-cli
-aur/goverlay
 aur/hadolint
 extra/helm
 extra/helmfile
