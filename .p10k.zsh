@@ -39,7 +39,7 @@
     aws                     # aws profile (https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
     gcloud                  # google cloud cli account and project (https://cloud.google.com/)
     direnv
-
+    nix_shell
     # =========================[ Line #2 ]=========================
     newline                 # \n
     prompt_char             # prompt symbol

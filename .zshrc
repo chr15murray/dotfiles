@@ -368,6 +368,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source $ZSH_CUSTOM/plugins/zsh-nix-shell/nix-shell.plugin.zsh
 
 # User configuration
 
