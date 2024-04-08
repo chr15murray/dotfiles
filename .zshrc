@@ -364,7 +364,8 @@ plugins=(
   docker
 #  docker-compose
 #  rbenv
-  zsh-syntax-highlighting
+#  zsh-syntax-highlighting
+  fast-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh

@@ -17,7 +17,9 @@ extra/dfu-util
 extra/direnv
 extra/discord
 extra/docker
+extra/docker-buildx
 extra/docker-compose
+aur/dropbox
 #aur/envconsul-git
 extra/exa
 extra/fd
@@ -97,6 +99,7 @@ extra/terraform
 #extra/itimeshift
 #chaotic-aur/timeshift-autosnap
 extra/tealdeer
+aur/thunar-dropbox
 #extra/tmux
 #aur/todoist
 #aur/todoist-electron
@@ -106,6 +109,7 @@ extra/variety
 #extra/vim
 #extra/virtualbox
 chaotic-aur/visual-studio-code-bin
+extra/vivaldi
 extra/wezterm
 extra/yadm
 extra/yq
