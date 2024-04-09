@@ -27,7 +27,7 @@ return {
     },
   },
 
-  -- Foce background_colour for transparency support
+  -- Force background_colour for transparency support
   {
     "rcarriga/nvim-notify",
     opts = {
