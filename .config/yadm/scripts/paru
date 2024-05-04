@@ -23,7 +23,7 @@ aur/dropbox
 #aur/envconsul-git
 extra/exa
 extra/fd
-extra/flameshot
+#extra/flameshot
 extra/flatpak
 extra/fping
 extra/gimp
@@ -38,7 +38,7 @@ aur/hadolint
 extra/helm
 #extra/helmfile
 #aur/helm-diff
-aur/helm-secrets
+#aur/helm-secrets
 extra/htop
 extra/httpie
 extra/httping
@@ -104,13 +104,13 @@ aur/thunar-dropbox
 #aur/todoist
 #aur/todoist-electron
 extra/tree
-extra/variety
+#extra/variety
 #aur/velero
 #extra/vim
 #extra/virtualbox
 chaotic-aur/visual-studio-code-bin
-extra/vivaldi
-extra/wezterm
+#extra/vivaldi
+#extra/wezterm
 extra/yadm
 extra/yq
 extra/zellij

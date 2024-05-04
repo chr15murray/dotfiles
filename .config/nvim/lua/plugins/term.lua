@@ -5,7 +5,7 @@ return {
     version = "v2.*",
     opts = {
       direction = "float",
-      open_mapping = [[<c-`>]],
+      open_mapping = [[<c-\>]],
       float_opts = { border = "curved" },
     },
   },
