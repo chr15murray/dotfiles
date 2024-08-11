@@ -47,6 +47,7 @@ extra/hugo
 #chaotic-aur/joplin-desktop
 extra/jq
 #extra/k9s
+aur/kanata-bin
 #aur/kasmvncserver-bin
 extra/kdenlive
 extra/kitty
@@ -72,13 +73,13 @@ extra/npm
 aur/nvm
 extra/obs-studio
 extra/obsidian
-aur/protonvpn
 extra/popeye
 #extra/radeontop
 #aur/rancher-k3d-bin
 #aur/rancher-desktop
 extra/ripgrep
 #aur/rootlesskit
+extra/rust
 #aur/ryzenadj-git
 #aur/ryzen-controller-bin
 aur/screenkey-git
