@@ -107,7 +107,7 @@ aur/thunar-dropbox
 extra/tree
 #extra/variety
 #aur/velero
-#extra/vim
+extra/vim
 #extra/virtualbox
 chaotic-aur/visual-studio-code-bin
 #extra/vivaldi
