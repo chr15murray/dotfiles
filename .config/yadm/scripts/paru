@@ -68,6 +68,7 @@ extra/kubectx
 #aur/nerdctl-full-bin
 #extra/nextcloud-client
 extra/neovim
+core/nfs-utils
 #aur/notion-app-enhanced
 #extra/npm
 #aur/nvm
@@ -111,6 +112,8 @@ extra/vim
 #extra/virtualbox
 chaotic-aur/visual-studio-code-bin
 #extra/vivaldi
+multilib/wine
+multilib/winetricks
 #extra/wezterm
 extra/yadm
 extra/yq
