@@ -430,6 +430,7 @@ ka () { kubectl "$@" --all-namespaces; }
 kcert () {k get secret "$@" -o json | jq -r '.data."tls.crt"' | base64 -d  | openssl x509 -noout -text }
 alias kall='kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found'
 alias kdbg='kubectl run debug-chrism --rm --restart=Never -it --image=nicolaka/netshoot -- bash'
+alias kdbgi='kubectl run debug-chrism --rm --restart=Never -it --image=nicolaka/netshoot --overrides="{\"metadata\": { \"labels\": {\"sidecar.istio.io/inject\": \"true\"}}}" -- bash'
 alias kp='https_proxy=127.0.0.1:8888 kubectl'
 alias kubensp='https_proxy=127.0.0.1:8888 kubens'
 #alias ll='ls -lah'
@@ -481,6 +482,8 @@ alias icat="kitty +kitten icat"
 # Workaround / Compatibility for SSH from kitty - https://sw.kovidgoyal.net/kitty/faq.html#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-when-sshing-into-a-different-computer
 #alias ssh="kitty +kitten ssh"
 
+alias ff="aerospace list-windows --all | fzf --bind 'enter:execute(bash -c \"aerospace focus --window-id {1}\")+abort'"
+
 export EDITOR=nvim
 
 # Arch specific Aliases
@@ -509,7 +512,7 @@ zstyle ':omz:plugins:nvm' autoload yes
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+#[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Set Bat config location
 # export BAT_CONFIG_PATH="~/.config/bat/bat.conf"
@@ -527,7 +530,7 @@ export AWS_SDK_LOAD_CONFIG=1
 if [ -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" ]; then . "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" ]; then . "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"; fi
+#if [ -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" ]; then . "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"; fi
 
 # Use the new gcloud auth plugin - https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
@@ -537,6 +540,9 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 # Golang
 export PATH=$PATH:/usr/local/go/bin:~/go/bin
+
+# Rust
+export PATH=$PATH:~/.cargo/bin
 
 # Activate antigen
 if [ -f /usr/local/share/antigen/antigen.sh ]; then source /usr/local/share/antigen/antigen.zsh; fi 
@@ -579,21 +585,25 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Custom Completions
-fpath=(~/.config/zsh_completions $fpath)
+#fpath=(~/.config/zsh_completions $fpath)
 
 # Load last to avoid crashes
 autoload -U compinit && compinit
 #[ $(command -v stern) ] && source <(stern --completion=zsh)
-[ -f "/usr/local/etc/bash_completion.d/az" ] && source /usr/local/etc/bash_completion.d/az
-[ -f "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc" ] && . "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc"
+#[ -f "/usr/local/etc/bash_completion.d/az" ] && source /usr/local/etc/bash_completion.d/az
+#[ -f "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc" ] && . "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc"
 
-source <(kubectl completion zsh)
+#source <(kubectl completion zsh)
 
 source ~/.config/.iterm2_shell_integration.zsh
 export PATH="/usr/local/sbin:$PATH"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
+
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+source <(carapace _carapace)
 
 # Completion for kitty
 # kitty + complete setup zsh | source /dev/stdin
