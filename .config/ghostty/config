@@ -2,4 +2,6 @@ background-opacity = 0.8
 keybind = global:cmd+grave_accent=toggle_quick_terminal
 quick-terminal-position=left
 quick-terminal-animation-duration=0
+copy-on-select = clipboard
+clipboard-paste-protection = true
 
