@@ -1,38 +1,43 @@
 1password
-alacritty
-apt-transport-https
+# alacritty
+# apt-transport-https
 bat
-brave-browser
+# brave-browser
 #balena-etcher-electron
-cryfs
+clang
+# cryfs
 curl
-docker.io
-exa
-figlet
-fonts-hack-ttf
-gettext
+direnv
+# docker.io
+# exa
+# figlet
+flatpak
+# fonts-hack-ttf
+# gettext
+gh
 git
-gnome-tweaks
+#gnome-tweaks
 #handbrake
 #handbrake-cli
 htop
 #insync
 make
-neofetch
-net-tools
+# neofetch
+# net-tools
 neovim
-nfs-common
+# nfs-common
 #snapd
-sirikali
-software-properties-common
-spotify-client
-stacer
+# sirikali
+# software-properties-common
+# spotify-client
+# stacer
 #tilix
 timeshift
+tldr
 tree
 ubuntu-restricted-extras
-vim
+#vim
 #vlc
 yadm
 zsh
-zsh-antigen
+# zsh-antigen
