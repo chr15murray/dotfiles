@@ -9,7 +9,7 @@ extra/bat
 chaotic-aur/brave-bin
 aur/bottles
 aur/carapace
-aur/cider
+#aur/cider
 #aur/civo-bin
 #aur/consul-template-bin
 #extra/cryfs
@@ -36,7 +36,7 @@ extra/github-cli
 aur/grpcurl
 extra/go-task
 aur/google-cloud-cli
-aur/hadolint
+#aur/hadolint
 extra/helm
 #extra/helmfile
 #aur/helm-diff
@@ -73,6 +73,7 @@ extra/neovim
 core/nfs-utils
 #aur/notion-app-enhanced
 #extra/npm
+extra/nvidia-container-toolkit
 #aur/nvm
 extra/obs-studio
 extra/obsidian
@@ -120,6 +121,7 @@ multilib/winetricks
 extra/yadm
 extra/yq
 extra/yazi
+aur/zen-browser-bin
 extra/zellij
 #aur/zenmonitor3-git
 #aur/zenstates-git
