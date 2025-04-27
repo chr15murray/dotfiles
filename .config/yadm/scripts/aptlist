@@ -4,6 +4,7 @@
 bat
 # brave-browser
 #balena-etcher-electron
+build-essential
 clang
 # cryfs
 curl
@@ -24,7 +25,7 @@ htop
 make
 # neofetch
 # net-tools
-neovim
+# neovim
 # nfs-common
 #snapd
 # sirikali

@@ -5,20 +5,20 @@ system_type=$(uname -s)
 echo "--Starting Bootstrap Script--"
 
 if [ "$system_type" = "Linux" ]; then
-	echo "Linux Detected"
+  echo "Linux Detected"
 
-	if [ -f "/etc/arch-release" ]; then
-		echo "Running Arch specific setup"
-		# sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort ~/.config/yadm/scripts/pacmanlist))
-		paru -Syu --needed $(cat ~/.config/yadm/scripts/paru | grep -v "#")
+  if [ -f "/etc/arch-release" ]; then
+    echo "Running Arch specific setup"
+    # sudo pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort ~/.config/yadm/scripts/pacmanlist))
+    paru -Syu --needed $(cat ~/.config/yadm/scripts/paru | grep -v "#")
 
-	elif [ -f "/etc/debian_version" ]; then
-		# This needs updating to only run for debian based systems
+  elif [ -f "/etc/debian_version" ]; then
+    # This needs updating to only run for debian based systems
     # Pre requisits
-    type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y) 
-    type -p curl >/dev/null || (sudo apt update && sudo apt-get install curl -y) 
+    type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)
+    type -p curl >/dev/null || (sudo apt update && sudo apt-get install curl -y)
 
-		if [ -d /etc/apt/keyrings ]; then
+    if [ -d /etc/apt/keyrings ]; then
       sudo mkdir -p -m 755 /etc/apt/keyrings
     fi
 
@@ -34,99 +34,98 @@ if [ "$system_type" = "Linux" ]; then
 
     # GH
     if [ ! -f /etc/apt/keyrings/githubcli-archive-keyring.gpg ]; then
-      out=$(mktemp) 
+      out=$(mktemp)
       wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg
-      cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null
+      cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg >/dev/null
       sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg
-	    echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+      echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null
     fi
 
     # App Repos
-		# Brave Browser
-		# curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
-		# echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-		# Etcher
-		#echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
-		#sudo apt-key adv --keyserver hkps://keyserver.ubuntu.com:443 --recv-keys 379CE192D401AB61
-		# Spotify
-		# curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -
-		# echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+    # Brave Browser
+    # curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
+    # echo "deb [arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+    # Etcher
+    #echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
+    #sudo apt-key adv --keyserver hkps://keyserver.ubuntu.com:443 --recv-keys 379CE192D401AB61
+    # Spotify
+    # curl -sS https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add -
+    # echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
-		# Update Apt
-		sudo apt update
+    # Update Apt
+    sudo apt update
 
-		# Install Apt Packages
-		xargs -a <(awk '! /^ *(#|$)/' ~/.config/yadm/scripts/aptlist) -r -- sudo apt install -y
+    # Install Apt Packages
+    xargs -a <(awk '! /^ *(#|$)/' ~/.config/yadm/scripts/aptlist) -r -- sudo apt install -y
 
-		#Cleaning up unused apt packages
-		sudo apt autoremove -y
+    #Cleaning up unused apt packages
+    sudo apt autoremove -y
 
-		# Install Snaps
-		while IFS="" read -r p || [ -n "$p" ]
-		do
+    # Install Snaps
+    while IFS="" read -r p || [ -n "$p" ]; do
       echo Installing $p
-		  sudo snap install $p
-		done < ~/.config/yadm/scripts/snaplist
+      sudo snap install $p
+    done <~/.config/yadm/scripts/snaplist
 
-		# Make Installs
-		#mkdir -p ~/git/makeinstall
-		# Dash to Dock
-		#if [ -d ~/git/makeinstall/dash-to-dock ]; then
-		#  pushd ~/git/makeinstall/dash-to-dock
-		#  git pull
-		#  make install
-		#  popd
-		#else
-		#  git clone https://github.com/micheleg/dash-to-dock.git ~/git/makeinstall/dash-to-dock
-		#  pushd ~/git/makeinstall/dash-to-dock
-		#  make install
-		#  popd
-		#fi
+    # Make Installs
+    #mkdir -p ~/git/makeinstall
+    # Dash to Dock
+    #if [ -d ~/git/makeinstall/dash-to-dock ]; then
+    #  pushd ~/git/makeinstall/dash-to-dock
+    #  git pull
+    #  make install
+    #  popd
+    #else
+    #  git clone https://github.com/micheleg/dash-to-dock.git ~/git/makeinstall/dash-to-dock
+    #  pushd ~/git/makeinstall/dash-to-dock
+    #  make install
+    #  popd
+    #fi
 
-	fi
+  fi
 
 elif [ "$system_type" = "Darwin" ]; then
-	echo "Mac Detected"
+  echo "Mac Detected"
 
-	# install homebrew if it's missing
-	if ! command -v brew >/dev/null 2>&1; then
-		echo "Installing homebrew"
-		/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-	fi
+  # install homebrew if it's missing
+  if ! command -v brew >/dev/null 2>&1; then
+    echo "Installing homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
 
-	# Run homebrew bundle
-	if [ -f "$HOME/.Brewfile" ]; then
-		echo "Updating homebrew bundle"
-		brew bundle --global
-	fi
+  # Run homebrew bundle
+  if [ -f "$HOME/.Brewfile" ]; then
+    echo "Updating homebrew bundle"
+    brew bundle --global
+  fi
 
-	# Setup iTerm2
-	if [ -d "$HOME/.config/iterm2" ]; then
-		echo "Setting iTerm preference folder"
-		defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.config/iterm2"
-		defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
-	fi
+  # Setup iTerm2
+  if [ -d "$HOME/.config/iterm2" ]; then
+    echo "Setting iTerm preference folder"
+    defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.config/iterm2"
+    defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+  fi
 
-	# Setup Bitbar
-	if [ -d "$HOME/bitbar" ]; then
-		echo "Setting Bitbar Plugin Directory"
-		defaults write com.matryer.BitBar pluginsDirectory "$HOME/bitbar"
-	fi
+  # Setup Bitbar
+  if [ -d "$HOME/bitbar" ]; then
+    echo "Setting Bitbar Plugin Directory"
+    defaults write com.matryer.BitBar pluginsDirectory "$HOME/bitbar"
+  fi
 
-	# Mac Settings
-	${HOME}/.config/yadm/scripts/mac-settings.sh
+  # Mac Settings
+  ${HOME}/.config/yadm/scripts/mac-settings.sh
 
 else
-	echo "No Bootstrap configuration for " $system_type
-	exit 1
+  echo "No Bootstrap configuration for " $system_type
+  exit 1
 fi
 
 # Common Tools
 if [ ! -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]; then
-	echo "Installing Oh-My-Zsh"
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-	mv $HOME/.zshrc $HOME/.zshrc_new
-	mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
+  echo "Installing Oh-My-Zsh"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  mv $HOME/.zshrc $HOME/.zshrc_new
+  mv $HOME/.zshrc.pre-oh-my-zsh $HOME/.zshrc
 fi
 
 # Install ZSH Custom Plugins if not present
@@ -148,10 +147,10 @@ ZSH_CUSTOM=${HOME}/.oh-my-zsh/custom
 
 # Setup Flathub
 echo "Setting up Flatpak and Installing..."
-flatpak remotes | grep flathub > /dev/null || flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak remotes | grep flathub >/dev/null || flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 cat ~/.config/yadm/scripts/flatpacklist | xargs -n2 flatpak install --assumeyes --noninteractive
 
 echo "Next Suggested action:"
 echo "  gh auth login"
 echo "  gh extension install redraw/gh-install"
-
+echo "# Install Homebrew"
