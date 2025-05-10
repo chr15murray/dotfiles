@@ -465,9 +465,7 @@ alias pp="pulumi preview --diff"
 alias pup="pulumi up"
 alias pupd="pulumi up --diff"
 monkify () { /usr/local/bin/terminal-notifier -title Monkify -message "$@" -appIcon ~/.config/monkey-icon.png }
-alias jsre="jira jql \"(project = OPS OR labels = RequireSRE ) AND (status != Done AND status != Rejected AND status != 'Waiting for Triage' AND status != Completed ) \""
-#alias tl='echo -e "🔷 \e[34mJira\e[0m" ; jsre; echo -e "✅ \e[32mThings\n\e[0m"; things.sh all'
-alias tl='echo -e "🔷 \e[34mJira\e[0m" ; jsre; todoist sync; echo -e "📮 \e[31mTodoist\n\e[0m"; todoist list --filter "(overdue | today)"'
+alias tl='todoist sync; echo -e "📮 \e[31mTodoist\n\e[0m"; todoist list --filter "(overdue | today)"'
 alias helm2='brew unlink helm && brew link helm@2 --force && helm version && export HELM_TILLER_STORAGE=configmap'
 alias helm3='brew unlink helm@2 && brew link helm && helm version && export HELM_EXPERIMENTAL_OCI=1'
 alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
@@ -613,3 +611,6 @@ alias devproxy-start="cloudflared access tcp --hostname k8s.dev.bnkd.dev --url 1
 alias devproxy="killall cloudflared"
 
 eval "$(direnv hook zsh)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/chris/.lmstudio/bin"

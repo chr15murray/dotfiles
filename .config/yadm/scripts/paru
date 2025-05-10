@@ -106,7 +106,7 @@ extra/speedtest-cli
 extra/tealdeer
 aur/thunar-dropbox
 #extra/tmux
-#aur/todoist
+aur/todoist-bin
 #aur/todoist-electron
 extra/tree
 #extra/variety
@@ -122,6 +122,7 @@ extra/yadm
 extra/yq
 extra/yazi
 aur/zen-browser-bin
+extra/zed
 extra/zellij
 #aur/zenmonitor3-git
 #aur/zenstates-git
