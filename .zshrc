@@ -1,3 +1,7 @@
+# Support Debugging 
+zmodload zsh/zprof
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -357,7 +361,7 @@ plugins=(
   kube-ps1
 #  zsh-wakatime
   zsh-completions
-  nvm
+#  nvm
 #  emoji
   zsh-autosuggestions
 #  taskwarrior
@@ -421,6 +425,7 @@ EOF
 }
 
 # Alias
+aeroclean () { aerospace list-windows --all --json | jq -r '.[] | select(."window-title"=="") | ."window-id"' | xargs -n1 aerospace close --window-id }
 [ $( command -v batcat) ] && alias cat=batcat 
 [ $( command -v bat) ] && alias cat=bat
 alias zshconfig="vim ~/.zshrc"
@@ -434,8 +439,8 @@ alias kdbgi='kubectl run debug-chrism --rm --restart=Never -it --image=nicolaka/
 alias kp='https_proxy=127.0.0.1:8888 kubectl'
 alias kubensp='https_proxy=127.0.0.1:8888 kubens'
 #alias ll='ls -lah'
-alias ll='exa -la'
-alias lsx='exa'
+alias ll='eza -la'
+alias lsx='eza'
 alias cls=clear
 alias gssh='gcloud beta compute ssh --tunnel-through-iap'
 alias gssh-proxy='gcloud compute start-iap-tunnel bastion1 8888 --project fetch-ai-management --zone europe-west2-a --local-host-port=localhost:8888'
@@ -504,12 +509,12 @@ export HISTSIZE=1000000000
 # NVM Configuration
 #export NVM_DIR="$HOME/.nvm"
 #export NVM_AUTOLOAD=1
-zstyle ':omz:plugins:nvm' autoload yes
+#zstyle ':omz:plugins:nvm' autoload yes
 #[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 #[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+#[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 #[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Set Bat config location
@@ -586,7 +591,7 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 #fpath=(~/.config/zsh_completions $fpath)
 
 # Load last to avoid crashes
-autoload -U compinit && compinit
+#autoload -U compinit && compinit
 #[ $(command -v stern) ] && source <(stern --completion=zsh)
 #[ -f "/usr/local/etc/bash_completion.d/az" ] && source /usr/local/etc/bash_completion.d/az
 #[ -f "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc" ] && . "${HOME}/Downloads/google-cloud-sdk/completion.zsh.inc"
@@ -596,8 +601,8 @@ autoload -U compinit && compinit
 source ~/.config/.iterm2_shell_integration.zsh
 export PATH="/usr/local/sbin:$PATH"
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/vault vault
+#autoload -U +X bashcompinit && bashcompinit
+#complete -o nospace -C /usr/local/bin/vault vault
 
 export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
@@ -614,3 +619,11 @@ eval "$(direnv hook zsh)"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/home/chris/.lmstudio/bin"
+
+# Support Debugging
+zprof
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/chrismurray/.lmstudio/bin"
+# End of LM Studio CLI section
+
