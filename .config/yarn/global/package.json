@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@google/gemini-cli": "0.1.15",
     "corepack": "0.33.0",
     "newman": "^6.2.0",
     "npm": "11.4.1",
