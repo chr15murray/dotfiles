@@ -627,3 +627,6 @@ zprof
 export PATH="$PATH:/Users/chrismurray/.lmstudio/bin"
 # End of LM Studio CLI section
 
+
+# Added by Antigravity
+export PATH="/Users/chrismurray/.antigravity/antigravity/bin:$PATH"
