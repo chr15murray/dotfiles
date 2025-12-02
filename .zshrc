@@ -1,5 +1,5 @@
 # Support Debugging 
-zmodload zsh/zprof
+# zmodload zsh/zprof
 
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -617,16 +617,12 @@ alias devproxy="killall cloudflared"
 
 eval "$(direnv hook zsh)"
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/chris/.lmstudio/bin"
-
 # Support Debugging
 zprof
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/chrismurray/.lmstudio/bin"
 # End of LM Studio CLI section
-
 
 # Added by Antigravity
 export PATH="/Users/chrismurray/.antigravity/antigravity/bin:$PATH"
