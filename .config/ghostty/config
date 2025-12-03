@@ -7,3 +7,4 @@ clipboard-paste-protection = true
 theme = Dracula
 window-decoration = false
 
+keybind = shift+enter=text:\x1b\r

@@ -618,7 +618,7 @@ alias devproxy="killall cloudflared"
 eval "$(direnv hook zsh)"
 
 # Support Debugging
-zprof
+#zprof
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/chrismurray/.lmstudio/bin"
