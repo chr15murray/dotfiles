@@ -94,23 +94,24 @@ elif [ "$system_type" = "Darwin" ]; then
   fi
 
   # Run homebrew bundle
-  if [ -f "$HOME/.Brewfile" ]; then
-    echo "Updating homebrew bundle"
-    brew bundle --global
-  fi
+  # TODO: Add homebrew support from homebrew bundle folder at .config/brewfiles
+  #if [ -f "$HOME/.Brewfile" ]; then
+  #  echo "Updating homebrew bundle"
+  #  brew bundle --global
+  #fi
 
   # Setup iTerm2
-  if [ -d "$HOME/.config/iterm2" ]; then
-    echo "Setting iTerm preference folder"
-    defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.config/iterm2"
-    defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
-  fi
+  #if [ -d "$HOME/.config/iterm2" ]; then
+  #  echo "Setting iTerm preference folder"
+  #  defaults write com.googlecode.iterm2 PrefsCustomFolder "$HOME/.config/iterm2"
+  #  defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+  #fi
 
   # Setup Bitbar
-  if [ -d "$HOME/bitbar" ]; then
-    echo "Setting Bitbar Plugin Directory"
-    defaults write com.matryer.BitBar pluginsDirectory "$HOME/bitbar"
-  fi
+  #if [ -d "$HOME/bitbar" ]; then
+  #  echo "Setting Bitbar Plugin Directory"
+  #  defaults write com.matryer.BitBar pluginsDirectory "$HOME/bitbar"
+  #fi
 
   # Mac Settings
   ${HOME}/.config/yadm/scripts/mac-settings.sh
