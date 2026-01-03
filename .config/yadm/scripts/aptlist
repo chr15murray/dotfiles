@@ -34,7 +34,7 @@ make
 # stacer
 #tilix
 timeshift
-tldr
+# tldr
 tree
 ubuntu-restricted-extras
 #vim
