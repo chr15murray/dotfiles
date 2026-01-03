@@ -18,6 +18,12 @@ if [ "$system_type" = "Linux" ]; then
     type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)
     type -p curl >/dev/null || (sudo apt update && sudo apt-get install curl -y)
 
+
+    if [ ! -f /bin/zsh ]; then
+      echo Installing zsh
+      sudo apt install zsh -y
+    fi
+
     if [ -d /etc/apt/keyrings ]; then
       sudo mkdir -p -m 755 /etc/apt/keyrings
     fi
@@ -62,10 +68,10 @@ if [ "$system_type" = "Linux" ]; then
     sudo apt autoremove -y
 
     # Install Snaps
-    while IFS="" read -r p || [ -n "$p" ]; do
-      echo Installing $p
-      sudo snap install $p
-    done <~/.config/yadm/scripts/snaplist
+    # while IFS="" read -r p || [ -n "$p" ]; do
+    #  echo Installing $p
+    #  sudo snap install $p
+    #done <~/.config/yadm/scripts/snaplist
 
     # Make Installs
     #mkdir -p ~/git/makeinstall
