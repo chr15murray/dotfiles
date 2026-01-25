@@ -626,3 +626,10 @@ export PATH="$PATH:/Users/chrismurray/.lmstudio/bin"
 
 # Added by Antigravity
 export PATH="/Users/chrismurray/.antigravity/antigravity/bin:$PATH"
+
+# bun completions
+[ -s "/home/chrismurray/.bun/_bun" ] && source "/home/chrismurray/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
