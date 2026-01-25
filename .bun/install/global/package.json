@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "mastra": "^1.0.1",
+    "opencode-ai": "^1.1.36"
+  }
+}
