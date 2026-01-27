@@ -477,7 +477,7 @@ alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 azid () { az resource show --ids ${RID} -o json }
 alias n='nerdctl --namespace k8s.io '
 # GCloud
-alias helmlogin='export HELM_EXPERIMENTAL_OCI=1 && gcloud auth application-default print-access-token | helm registry login -u oauth2accesstoken --password-stdin https://europe-docker.pkg.dev' 
+alias helmlogin='export HELM_EXPERIMENTAL_OCI=1 && gcloud auth application-default print-access-token | helm registry login -u oauth2accesstoken --password-stdin europe-docker.pkg.dev' 
 # Kitty Aliases
 alias histcode="kitty @launch --stdin-source=@screen_scrollback code -"
 alias kdiff="kitty +kitten diff"

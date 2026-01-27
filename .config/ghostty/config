@@ -5,6 +5,6 @@ quick-terminal-animation-duration=0
 copy-on-select = clipboard
 clipboard-paste-protection = true
 theme = Dracula
-window-decoration = false
+window-decoration = true
 
 keybind = shift+enter=text:\x1b\r
