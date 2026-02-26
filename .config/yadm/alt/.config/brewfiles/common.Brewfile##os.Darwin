@@ -1,5 +1,6 @@
 # Aerospace Tap
 tap "nikitabobko/tap"
+tap "f1bonacc1/tap"
 brew "angle-grinder"
 brew "bat"
 brew "carapace"
@@ -16,3 +17,4 @@ cask "nikitabobko/tap/aerospace"
 cask "claude-code"
 cask "forklift"
 cask "ghostty"
+brew "f1bonacc1/tap/process-compose"
