@@ -1,6 +1,7 @@
 {
   "dependencies": {
+    "eslint": "^10.0.2",
     "mastra": "^1.2.0",
-    "opencode-ai": "1.2.15"
+    "opencode-ai": "1.2.24"
   }
 }
