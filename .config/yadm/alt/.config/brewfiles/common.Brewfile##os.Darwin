@@ -2,6 +2,7 @@
 tap "nikitabobko/tap"
 tap "f1bonacc1/tap"
 tap "manaflow-ai/cmux"
+tap "acsandmann/tap"
 brew "angle-grinder"
 brew "bat"
 brew "carapace"
@@ -20,4 +21,5 @@ cask "manaflow-ai/cmux/cmux"
 cask "forklift"
 cask "ghostty"
 brew "f1bonacc1/tap/process-compose"
+brew "acsandmann/tap/rift"
 
