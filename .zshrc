@@ -506,16 +506,11 @@ export HISTCONTROL=ignoreboth
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
 
-# NVM Configuration
-#export NVM_DIR="$HOME/.nvm"
-#export NVM_AUTOLOAD=1
-#zstyle ':omz:plugins:nvm' autoload yes
-#[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-#[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-#export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-#[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-#[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# mise (replaces nvm/volta for Node, pnpm, etc.)
+# Config is split via yadm alt files (like the Brewfiles) into ~/.config/mise/ -
+# common.toml always applies, work.toml only resolves there via yadm's class.work condition.
+[ -d "$HOME/.config/mise" ] && export MISE_CONFIG_FILE=$(find "$HOME/.config/mise" -maxdepth 1 -name "*.toml" | paste -sd: -)
+eval "$(mise activate zsh)"
 
 # Set Bat config location
 # export BAT_CONFIG_PATH="~/.config/bat/bat.conf"
@@ -539,7 +534,7 @@ if [ -f "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.i
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # Add MySQL to Path
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+[ -d "/usr/local/opt/mysql-client/bin" ] && export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 # Golang
 export PATH=$PATH:/usr/local/go/bin:~/go/bin
@@ -552,7 +547,7 @@ if [ -f /usr/local/share/antigen/antigen.sh ]; then source /usr/local/share/anti
 if [ -f /usr/share/zsh-antigen/antigen.sh ]; then source /usr/share/zsh-antigen/antigen.zsh; fi 
 
 # Ledger
-export OPENSSL_ROOT_DIR=/usr/local/Cellar/openssl/1.0.2r
+[ -d "/usr/local/Cellar/openssl/1.0.2r" ] && export OPENSSL_ROOT_DIR=/usr/local/Cellar/openssl/1.0.2r
 
 # Docker
 ## Enable Buildkit
@@ -563,7 +558,7 @@ export DOCKER_BUILDKIT=1
 export DIRENV_WARN_TIMEOUT=30s
 export DIRENV_LOG_FORMAT=""
 
-export PATH="/usr/local/opt/libpq/bin:$PATH"
+[ -d "/usr/local/opt/libpq/bin" ] && export PATH="/usr/local/opt/libpq/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -598,8 +593,8 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 
 #source <(kubectl completion zsh)
 
-source ~/.config/.iterm2_shell_integration.zsh
-export PATH="/usr/local/sbin:$PATH"
+[ -f "$HOME/.config/.iterm2_shell_integration.zsh" ] && source "$HOME/.config/.iterm2_shell_integration.zsh"
+[ -d "/usr/local/sbin" ] && export PATH="/usr/local/sbin:$PATH"
 
 #autoload -U +X bashcompinit && bashcompinit
 #complete -o nospace -C /usr/local/bin/vault vault
@@ -621,11 +616,8 @@ eval "$(direnv hook zsh)"
 #zprof
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/chrismurray/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
-
-# Added by Antigravity
-export PATH="/Users/chrismurray/.antigravity/antigravity/bin:$PATH"
 
 # bun completions
 [ -s "/home/chrismurray/.bun/_bun" ] && source "/home/chrismurray/.bun/_bun"
