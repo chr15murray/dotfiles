@@ -47,6 +47,12 @@ if [ "$system_type" = "Linux" ]; then
       echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list >/dev/null
     fi
 
+    # mise
+    if [ ! -f /etc/apt/keyrings/mise-archive-keyring.gpg ]; then
+      wget -qO - https://mise.jdx.dev/gpg-key.pub | gpg --dearmor | sudo tee /etc/apt/keyrings/mise-archive-keyring.gpg >/dev/null
+      echo "deb [signed-by=/etc/apt/keyrings/mise-archive-keyring.gpg arch=$(dpkg --print-architecture)] https://mise.jdx.dev/deb stable main" | sudo tee /etc/apt/sources.list.d/mise.list >/dev/null
+    fi
+
     # App Repos
     # Brave Browser
     # curl -s https://brave-browser-apt-release.s3.brave.com/brave-core.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-release.gpg add -
@@ -100,11 +106,16 @@ elif [ "$system_type" = "Darwin" ]; then
   fi
 
   # Run homebrew bundle
-  # TODO: Add homebrew support from homebrew bundle folder at .config/brewfiles
-  #if [ -f "$HOME/.Brewfile" ]; then
-  #  echo "Updating homebrew bundle"
-  #  brew bundle --global
-  #fi
+  # yadm's alt mechanism only resolves the Brewfiles matching this machine's
+  # os/class (e.g. common.Brewfile + work.Brewfile), so just process whatever
+  # shows up in the directory rather than naming files explicitly.
+  if [ -d "$HOME/.config/brewfiles" ]; then
+    for brewfile in "$HOME/.config/brewfiles"/*.Brewfile; do
+      [ -f "$brewfile" ] || continue
+      echo "Updating homebrew bundle: $brewfile"
+      brew bundle --file="$brewfile"
+    done
+  fi
 
   # Setup iTerm2
   #if [ -d "$HOME/.config/iterm2" ]; then
@@ -154,8 +165,8 @@ ZSH_CUSTOM=${HOME}/.oh-my-zsh/custom
 
 # Setup Flathub
 echo "Setting up Flatpak and Installing..."
-flatpak remotes | grep flathub >/dev/null || flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-cat ~/.config/yadm/scripts/flatpacklist | xargs -n2 flatpak install --assumeyes --noninteractive
+flatpak remotes --user | grep flathub >/dev/null || flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+cat ~/.config/yadm/scripts/flatpacklist | xargs -n2 flatpak install --user --assumeyes --noninteractive
 
 echo "Next Suggested action:"
 echo "  gh auth login"
