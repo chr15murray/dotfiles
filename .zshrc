@@ -355,7 +355,7 @@ alias upd='sudo reflector --latest 5 --age 2 --fastest 5 --protocol https --sort
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-#  asdf
+  asdf
 #  bundler
   git
   kube-ps1
