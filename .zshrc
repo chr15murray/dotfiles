@@ -34,7 +34,18 @@ fi
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME='powerlevel10k/powerlevel10k'
+# Skip the fancy Powerlevel10k/gitstatus prompt when there's no controlling
+# terminal on any std fd (e.g. `zsh -i -c '...'` invoked from a script or
+# agent tool sandbox). gitstatusd needs `setopt monitor` (job control),
+# which requires a real tty; without one it prints a harmless-but-scary
+# "gitstatus failed to initialize" error. Real interactive terminal
+# sessions always have at least one std fd attached to a tty, so this
+# never changes behavior on Linux or macOS terminals.
+if [[ -t 0 || -t 1 || -t 2 ]]; then
+  ZSH_THEME='powerlevel10k/powerlevel10k'
+else
+  ZSH_THEME=''
+fi
 
 # Default Powerlevel prompts
 #POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
