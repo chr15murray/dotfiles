@@ -599,9 +599,11 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 #autoload -U +X bashcompinit && bashcompinit
 #complete -o nospace -C /usr/local/bin/vault vault
 
-export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
-zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
-source <(carapace _carapace)
+if command -v carapace >/dev/null 2>&1; then
+  export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+  zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+  source <(carapace _carapace)
+fi
 
 # Completion for kitty
 # kitty + complete setup zsh | source /dev/stdin
