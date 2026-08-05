@@ -518,9 +518,10 @@ export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
 
 # mise (replaces nvm/volta for Node, pnpm, etc.)
-# Config is split via yadm alt files (like the Brewfiles) into ~/.config/mise/ -
+# Config is split via yadm alt files (like the Brewfiles) into ~/.config/mise/conf.d/ -
+# mise merges every *.toml in there automatically, no MISE_CONFIG_FILE needed.
 # common.toml always applies, work.toml only resolves there via yadm's class.work condition.
-[ -d "$HOME/.config/mise" ] && export MISE_CONFIG_FILE=$(find "$HOME/.config/mise" -maxdepth 1 -name "*.toml" | paste -sd: -)
+# On a conflicting tool the alphabetically first file wins, so prefix with NN- to control order.
 eval "$(mise activate zsh)"
 
 # Set Bat config location
