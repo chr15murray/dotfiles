@@ -7,6 +7,21 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# --- resilient startup -------------------------------------------------------
+# zsh aborts the REST of a sourced file when it takes SIGINT, so a single Ctrl+C
+# on one blocked step used to silently skip every line below it (losing ~/.p10k.zsh,
+# direnv, completions, PATH additions...). Swallowing INT for the duration of this
+# file downgrades that to "abandon the current step and keep going".
+# Removed again at the end of the file, and by a first-prompt hook as a backstop.
+if [[ -o interactive ]]; then
+  typeset -g _zshrc_int_hits=0
+  TRAPINT() {
+    (( ++_zshrc_int_hits ))
+    print -u2 -- "~/.zshrc: step interrupted (#${_zshrc_int_hits}), continuing startup"
+    return 0
+  }
+fi
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -522,7 +537,27 @@ export HISTSIZE=1000000000
 # mise merges every *.toml in there automatically, no MISE_CONFIG_FILE needed.
 # common.toml always applies, work.toml only resolves there via yadm's class.work condition.
 # On a conflicting tool the alphabetically first file wins, so prefix with NN- to control order.
-eval "$(mise activate zsh)"
+# mise resolves repo-local [env] on every activate/cd, and a repo's `_.source` script can
+# shell out to anything - including something that wants to prompt for credentials (see
+# ~/git/terraform). Startup must never hand a step the terminal: a blocked read, plus the
+# Ctrl+C needed to escape it, used to abort the REST of this file - zsh discards a sourced
+# file on SIGINT - silently costing ~/.p10k.zsh, direnv, completions and PATH entries.
+# With stdin closed such a command fails fast and says so instead of blocking.
+# mise's own stderr still reaches the terminal; MISE_LOG_FILE just keeps a copy.
+export MISE_LOG_FILE="${XDG_STATE_HOME:-$HOME/.local/state}/mise/mise.log"
+export MISE_LOG_FILE_LEVEL=warn
+[[ -d ${MISE_LOG_FILE:h} ]] || mkdir -p -- "${MISE_LOG_FILE:h}"
+
+# `mise activate` runs hook-env INLINE, so the eval itself needs the guard.
+eval "$(mise activate zsh)" </dev/null
+
+# Same guard for every later invocation: the chpwd/precmd hooks (`cd` into such a repo
+# mid-session) and command_not_found_handler. Wrapping mise's own function rather than
+# reimplementing it keeps this working across mise upgrades.
+if (( $+functions[_mise_hook] )); then
+  functions -c _mise_hook _mise_hook_unguarded
+  _mise_hook() { _mise_hook_unguarded "$@" </dev/null; return 0 }
+fi
 
 # Set Bat config location
 # export BAT_CONFIG_PATH="~/.config/bat/bat.conf"
@@ -639,3 +674,15 @@ export PATH="$PATH:$HOME/.lmstudio/bin"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# --- end of resilient startup (pairs with the TRAPINT block near the top) -----
+_zshrc_clear_trapint() {
+  unfunction TRAPINT 2>/dev/null
+  add-zsh-hook -d precmd _zshrc_clear_trapint 2>/dev/null
+  unfunction _zshrc_clear_trapint 2>/dev/null
+}
+autoload -Uz add-zsh-hook && add-zsh-hook precmd _zshrc_clear_trapint
+unfunction TRAPINT 2>/dev/null
+(( ${_zshrc_int_hits:-0} )) && \
+  print -u2 -- "~/.zshrc: loaded with ${_zshrc_int_hits} interrupted step(s)"
+unset _zshrc_int_hits
