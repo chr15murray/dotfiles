@@ -23,7 +23,7 @@ if [[ -o interactive ]]; then
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
@@ -629,8 +629,6 @@ export DIRENV_LOG_FORMAT=""
 
 
 
-export PATH=${HOME}/bin:$PATH
-
 #[[ -e "/Users/chrismurray/lib/oracle-cli/lib/python3.7/site-packages/oci_cli/bin/oci_autocomplete.sh" ]] && source "/Users/chrismurray/lib/oracle-cli/lib/python3.7/site-packages/oci_cli/bin/oci_autocomplete.sh"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 #[[ -s "/etc/grc.zsh" ]] && source /usr/local/etc/grc.zsh
@@ -692,6 +690,8 @@ export PATH="$PATH:$HOME/.lmstudio/bin"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+typeset -U path fpath
 
 # --- end of resilient startup (pairs with the TRAPINT block near the top) -----
 _zshrc_clear_trapint() {
