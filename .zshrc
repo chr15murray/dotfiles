@@ -49,14 +49,28 @@ fi
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-# Skip the fancy Powerlevel10k/gitstatus prompt when there's no controlling
-# terminal on any std fd (e.g. `zsh -i -c '...'` invoked from a script or
+# Skip the fancy Powerlevel10k/gitstatus prompt when this isn't a real
+# interactive terminal session (e.g. `zsh -i -c '...'` invoked from a script or
 # agent tool sandbox). gitstatusd needs `setopt monitor` (job control),
 # which requires a real tty; without one it prints a harmless-but-scary
-# "gitstatus failed to initialize" error. Real interactive terminal
-# sessions always have at least one std fd attached to a tty, so this
-# never changes behavior on Linux or macOS terminals.
-if [[ -t 0 || -t 1 || -t 2 ]]; then
+# "gitstatus failed to initialize" error.
+#
+# Do NOT test this with `-t 0 || -t 1 || -t 2`. When p10k's instant prompt is
+# armed, the block at the top of this file redirects ALL THREE std fds away from
+# the tty for the whole remainder of .zshrc (stdin from /dev/null, stdout+stderr
+# to a temp file so it can capture stray output - see internal/p10k.zsh:6353) and
+# only restores them at the first prompt. So an fd test here reports "no tty" in
+# exactly the sessions that are working correctly, blanking ZSH_THEME so
+# oh-my-zsh loads no theme at all and the prompt falls back to /etc/zshrc's
+# PS1="%n@%m %1~ %# " - i.e. `user@host ~ %`. That made the prompt alternate
+# between powerline and bare `%` on every other shell: instant prompt armed ->
+# guard fails -> no theme -> p10k never finalizes -> it deletes its cache ->
+# next shell has no cache -> guard passes -> prompt works -> cache rewritten.
+#
+# ZSH_EXECUTION_STRING / ZSH_SCRIPT are what actually distinguish the cases we
+# want to skip, they're unaffected by fd redirection, and they're what p10k
+# itself uses for the same decision (internal/p10k.zsh:6067).
+if [[ -o interactive ]] && (( ! ${+ZSH_EXECUTION_STRING} && ! ${+ZSH_SCRIPT} )); then
   ZSH_THEME='powerlevel10k/powerlevel10k'
 else
   ZSH_THEME=''
@@ -384,7 +398,13 @@ plugins=(
   asdf
 #  bundler
   git
-  kube-ps1
+# kube-ps1 removed: not in any POWERLEVEL9K_*_PROMPT_ELEMENTS (p10k renders
+#   kubecontext itself from ~/.kube/config, no subprocess), and its precmd hook ran
+#   `kubectl config current-context` + `config view --minify` every prompt. On a GKE
+#   context that goes via the gke-gcloud-auth-plugin to `gcloud config config-helper`,
+#   which is slow (or fails on an expired token) - slow enough that p10k gave up writing
+#   its instant-prompt cache, so every shell showed a bare `%` until the prompt built.
+#  kube-ps1
 #  zsh-wakatime
   zsh-completions
 #  nvm
@@ -607,7 +627,6 @@ export DIRENV_LOG_FORMAT=""
 
 [ -d "/usr/local/opt/libpq/bin" ] && export PATH="/usr/local/opt/libpq/bin:$PATH"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 
 export PATH=${HOME}/bin:$PATH
@@ -640,7 +659,6 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 
 #source <(kubectl completion zsh)
 
-[ -f "$HOME/.config/.iterm2_shell_integration.zsh" ] && source "$HOME/.config/.iterm2_shell_integration.zsh"
 [ -d "/usr/local/sbin" ] && export PATH="/usr/local/sbin:$PATH"
 
 #autoload -U +X bashcompinit && bashcompinit
