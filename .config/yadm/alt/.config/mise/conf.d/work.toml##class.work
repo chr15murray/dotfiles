@@ -3,3 +3,4 @@ deno = "latest"
 rust = "latest"
 # Google SecOps (Chronicle) CLI — ships with the secops Python SDK
 "pipx:secops" = "latest"
+"npm:firebase-tools" = "latest"
