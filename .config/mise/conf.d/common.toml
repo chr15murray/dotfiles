@@ -7,6 +7,7 @@ node = "lts"
 pnpm = "latest"
 herdr = "latest"
 "github:carapace-sh/carapace-bin" = "latest"
+go = "latest"
 # Neovim + LazyVim external dependencies
 neovim = "0.12"
 fd = "latest"
