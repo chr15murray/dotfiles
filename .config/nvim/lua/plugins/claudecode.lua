@@ -16,5 +16,7 @@ return {
     { "<leader>af", false },
     { "<leader>ar", false },
     { "<leader>aC", false },
+    -- The extra only maps tree-add for neo-tree/NvimTree/oil; add the snacks explorer
+    { "<leader>as", "<cmd>ClaudeCodeTreeAdd<cr>", desc = "Add file", ft = { "snacks_picker_list" } },
   },
 }

@@ -10,6 +10,7 @@
     "lazyvim.plugins.extras.lang.terraform",
     "lazyvim.plugins.extras.lang.yaml"
   ],
+  "install_version": 8,
   "news": {
     "NEWS.md": "11866"
   },
