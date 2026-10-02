@@ -6,4 +6,5 @@ debug
 foo.*
 *.log
 data
+# lazy-lock.json is a yadm alt symlink (per-OS lockfiles in ~/.config/yadm/alt/.config/nvim/)
 lazy-lock.json
