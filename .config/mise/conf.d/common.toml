@@ -1,5 +1,15 @@
+[settings]
+# Cooldown: only install tool versions that have been public for at least 7 days
+minimum_release_age = "7d"
+
 [tools]
 node = "lts"
 pnpm = "latest"
 herdr = "latest"
 "github:carapace-sh/carapace-bin" = "latest"
+# Neovim + LazyVim external dependencies
+neovim = "0.12"
+fd = "latest"
+fzf = "latest"
+lazygit = "latest"
+tree-sitter = "latest"
