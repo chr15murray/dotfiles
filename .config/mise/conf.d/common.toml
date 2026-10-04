@@ -1,6 +1,8 @@
 [settings]
 # Cooldown: only install tool versions that have been public for at least 7 days
 minimum_release_age = "7d"
+# Install npm: backend tools with pnpm
+npm.package_manager = "pnpm"
 
 [tools]
 node = "lts"
@@ -14,3 +16,5 @@ fd = "latest"
 fzf = "latest"
 lazygit = "latest"
 tree-sitter = "latest"
+# Claude Code status line
+"npm:ccstatusline" = "latest"

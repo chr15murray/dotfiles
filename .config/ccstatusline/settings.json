@@ -1,0 +1,105 @@
+{
+  "version": 4,
+  "lines": [
+    [
+      {
+        "id": "1",
+        "type": "context-length",
+        "color": "yellow",
+        "bold": true,
+        "rawValue": true,
+        "numberFormat": {
+          "style": "compact"
+        }
+      },
+      {
+        "id": "2",
+        "type": "custom-text",
+        "color": "brightBlack",
+        "customText": "(",
+        "merge": "no-padding"
+      },
+      {
+        "id": "3",
+        "type": "context-percentage",
+        "color": "brightBlack",
+        "rawValue": true,
+        "merge": "no-padding",
+        "metadata": {
+          "display": "slider"
+        }
+      },
+      {
+        "id": "4",
+        "type": "custom-text",
+        "color": "brightBlack",
+        "customText": ") ",
+        "merge": "no-padding"
+      },
+      {
+        "id": "816a538a-8aab-452d-a809-5b49725585de",
+        "type": "session-usage",
+        "metadata": {
+          "display": "time"
+        },
+        "numberFormat": {
+          "style": "compact"
+        }
+      },
+      {
+        "id": "a60e6385-f1ee-4463-ac3b-576b7786498a",
+        "type": "reset-timer",
+        "metadata": {
+          "display": "time",
+          "compact": "true"
+        }
+      },
+      {
+        "id": "afa01ab6-44b3-4ba8-a1ff-657984281b8d",
+        "type": "weekly-usage",
+        "metadata": {
+          "display": "time"
+        }
+      },
+      {
+        "id": "b67b8623-05a3-4e44-8e70-b8840bdd56a8",
+        "type": "weekly-reset-timer",
+        "metadata": {
+          "display": "time",
+          "compact": "true",
+          "hours": "true"
+        }
+      }
+    ],
+    [],
+    []
+  ],
+  "flexMode": "full-minus-40",
+  "compactThreshold": 60,
+  "colorLevel": 2,
+  "defaultSeparator": " ",
+  "defaultPadding": " ",
+  "defaultPaddingSide": "both",
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "gitCacheTtlSeconds": 5,
+  "terminalWidthCacheTtlSeconds": 5,
+  "customCommandCacheTtlSeconds": 0,
+  "minimalistMode": false,
+  "powerline": {
+    "enabled": true,
+    "separators": [
+      " "
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [
+      ""
+    ],
+    "theme": "catppuccin",
+    "autoAlign": true,
+    "continueThemeAcrossLines": true
+  }
+}
