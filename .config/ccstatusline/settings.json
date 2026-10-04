@@ -7,71 +7,98 @@
         "type": "context-length",
         "color": "yellow",
         "bold": true,
-        "rawValue": true,
         "numberFormat": {
           "style": "compact"
-        }
+        },
+        "rawValue": true
       },
       {
         "id": "2",
         "type": "custom-text",
-        "color": "brightBlack",
+        "color": "brightGreen",
         "customText": "(",
-        "merge": "no-padding"
+        "merge": "no-padding",
+        "dim": true
       },
       {
         "id": "3",
         "type": "context-percentage",
-        "color": "brightBlack",
+        "color": "brightGreen",
         "rawValue": true,
         "merge": "no-padding",
         "metadata": {
           "display": "slider"
-        }
+        },
+        "dim": true
       },
       {
         "id": "4",
         "type": "custom-text",
-        "color": "brightBlack",
+        "color": "brightGreen",
         "customText": ") ",
-        "merge": "no-padding"
+        "merge": "no-padding",
+        "dim": true
       },
       {
         "id": "816a538a-8aab-452d-a809-5b49725585de",
         "type": "session-usage",
+        "color": "brightYellow",
+        "numberFormat": {
+          "style": "compact"
+        },
         "metadata": {
           "display": "time"
         },
-        "numberFormat": {
-          "style": "compact"
-        }
+        "dim": true
       },
       {
         "id": "a60e6385-f1ee-4463-ac3b-576b7786498a",
         "type": "reset-timer",
+        "color": "brightMagenta",
         "metadata": {
           "display": "time",
           "compact": "true"
-        }
+        },
+        "dim": true
       },
       {
         "id": "afa01ab6-44b3-4ba8-a1ff-657984281b8d",
         "type": "weekly-usage",
         "metadata": {
           "display": "time"
-        }
+        },
+        "dim": true
       },
       {
         "id": "b67b8623-05a3-4e44-8e70-b8840bdd56a8",
         "type": "weekly-reset-timer",
+        "color": "brightCyan",
         "metadata": {
           "display": "time",
           "compact": "true",
           "hours": "true"
-        }
+        },
+        "dim": true
       }
     ],
-    [],
+    [
+      {
+        "id": "profile",
+        "type": "custom-command",
+        "color": "magenta",
+        "commandPath": "echo \"Profile: $(basename \"${CLAUDE_CONFIG_DIR:-default}\")\"",
+        "preserveColors": false,
+        "dim": true
+      },
+      {
+        "id": "570b1965-e773-40b8-b292-5997dcf1600a",
+        "type": "custom-command",
+        "color": "brightGreen",
+        "commandPath": "printf '\\033]8;;zed://file%s\\007Open in Zed\\033]8;;\\007' \"$PWD\"",
+        "preserveColors": true,
+        "dim": true
+      }
+    ],
     []
   ],
   "flexMode": "full-minus-40",
@@ -98,7 +125,7 @@
     "endCaps": [
       ""
     ],
-    "theme": "catppuccin",
+    "theme": "custom",
     "autoAlign": true,
     "continueThemeAcrossLines": true
   }
