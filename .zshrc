@@ -680,6 +680,10 @@ eval "$(direnv hook zsh)"
 # Support Debugging
 #zprof
 
+# Claude Helpers
+claude-lite() { CLAUDE_CONFIG_DIR=~/.config/claude/profiles/minimal ENABLE_TOOL_SEARCH=true claude "$@"; }
+claude-lite-log() { CLAUDE_CONFIG_DIR=~/.config/claude/profiles/minimal ANTHROPIC_BASE_URL=http://localhost:8787 ENABLE_TOOL_SEARCH=true command claude "$@"; }
+
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section

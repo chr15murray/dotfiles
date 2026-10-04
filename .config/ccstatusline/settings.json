@@ -122,9 +122,7 @@
       false
     ],
     "startCaps": [],
-    "endCaps": [
-      ""
-    ],
+    "endCaps": [],
     "theme": "custom",
     "autoAlign": true,
     "continueThemeAcrossLines": true

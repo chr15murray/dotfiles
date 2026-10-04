@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "deny": [
+      "CronCreate",
+      "CronDelete",
+      "CronList",
+      "DesignSync",
+      "EnterPlanMode",
+      "ExitPlanMode",
+      "NotebookEdit",
+      "PushNotification",
+      "RemoteTrigger",
+      "ReportFindings",
+      "ScheduleWakeup"
+    ]
+  },
+  "disableClaudeAiConnectors": true,
+  "disableBundledSkills": true,
+  "disableWorkflows": true,
+  "disableArtifact": true,
+  "env": {
+    "FORCE_HYPERLINK": "1"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.local/share/mise/shims/ccstatusline"
+  },
+  "tui": "fullscreen",
+  "theme": "dark",
+  "enabledPlugins": {
+    "mattpocock-skills@claude-plugins-official": true
+  }
+}
